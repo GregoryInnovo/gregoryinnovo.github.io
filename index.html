@@ -10,6 +10,7 @@
         display: flex;
         align-items: center;
         height: 100vh;
+        background-color: #0f477b
       }
 
       .gameboard {
@@ -68,17 +69,6 @@
         background: #badc58;
       }
 
-/*       .btn-start {
-        width: 400px;
-        height: 100px;
-        background: #ecf0f1;
-        color: #2c3e50;
-        font-size: 2.5rem;
-        position: absolute;
-        top: calc(50% - 50px);
-        left: calc(50% - 200px);
-      } */
-
       .hide {
         display: none;
       }
@@ -115,7 +105,7 @@
     }
 
     .animated {
-      animation-duration: 2.5s;
+      animation-duration: 30s;
       animation-fill-mode: both;
       animation-iteration-count: infinite;
     }
@@ -125,17 +115,31 @@
     }
 
     @keyframes wobble {
-      0% {transform: translateX(0%);}
-      15% {transform: translateX(-25%) rotate(-5deg);}
-      30% {transform: translateX(20%) rotate(3deg);}
-      45% {transform: translateX(-15%) rotate(-3deg);}
-      60% {transform: translateX(10%) rotate(2deg);}
-      75% {transform: translateX(-5%) rotate(-1deg);}
+      0% {transform: translateY(0%);}
+      15% {transform: translateY(0%) rotate(180deg);}
+      30% {transform: translateY(0%) rotate(-180deg);}
+      45% {transform: translateY(0%) rotate(180deg);}
+      60% {transform: translateY(0%) rotate(-180deg);}
+      75% {transform: translateY(0%) rotate(180deg);}
       100% {transform: translateX(0%);}
+    }
+
+    .p4 {
+      color: white;
+      font-size: 46px;
+      font-weight: bold;
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      text-align: center;
     }
     </style>
   </head>
   <body>
+
+    <p class="p4">Simon dice</p>
+
     <div class="gameboard animated wobble">
       <!-- El datadata-color es un atributo que uno manualmente le pone en el target y en data-set -->
       <div id="celeste" class="color celeste left" data-color="celeste"></div>
