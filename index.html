@@ -1,1 +1,296 @@
-Helo world
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Simon Dice</title>
+    <style>
+      body {
+        margin: 0;
+        background: #dedede;
+        display: flex;
+        align-items: center;
+        height: 100vh;
+      }
+
+      .gameboard {
+        height: 100vh;
+        width: 100vh;
+        border-radius: 50%;
+        overflow: hidden;
+        margin: 0 auto;
+        max-height: 60vh;
+        max-width: 60vh;
+      }
+
+      .color {
+        width: 50%;
+        height: 50%;
+        display: inline-block;
+      }
+
+      .left {
+        float: left;
+      }
+
+      .right {
+        float: left;
+      }
+
+      .celeste {
+        background: #22a6b3;
+      }
+
+      .celeste.light {
+        background: #7ed6df;
+      }
+
+      .violeta {
+        background: #be2edd;
+      }
+
+      .violeta.light {
+        background: #e056fd;
+      }
+
+      .naranja {
+        background: #f0932b;
+      }
+
+      .naranja.light {
+        background: #ffbe76;
+      }
+
+      .verde {
+        background: #6ab04c;
+      }
+
+      .verde.light {
+        background: #badc58;
+      }
+
+/*       .btn-start {
+        width: 400px;
+        height: 100px;
+        background: #ecf0f1;
+        color: #2c3e50;
+        font-size: 2.5rem;
+        position: absolute;
+        top: calc(50% - 50px);
+        left: calc(50% - 200px);
+      } */
+
+      .hide {
+        display: none;
+      }
+
+      .btn-start {
+      cursor: pointer;
+      width: 420px;
+      height: 100px;
+      background: #ecf0f1;
+      color: #2c3e50;
+      border: none;
+      border-bottom: 4px solid #c4c6c7;
+      border-radius: 8px;
+      font-size: 3em;
+      position: absolute;
+      top: calc(50% - 50px);
+      left: calc(50% - 210px);
+      transition: .5s;
+      outline: none;
+    }
+
+    .btn-start:hover {
+      color: #ecf0f1;
+      background: #2c3e50;
+      border-bottom: 4px solid #1f3346;
+    }
+    
+    .btn-start:active {
+      transform: scale(.95);
+    }
+
+    * {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .animated {
+      animation-duration: 2.5s;
+      animation-fill-mode: both;
+      animation-iteration-count: infinite;
+    }
+
+    .wobble {
+      animation-name: wobble;
+    }
+
+    @keyframes wobble {
+      0% {transform: translateX(0%);}
+      15% {transform: translateX(-25%) rotate(-5deg);}
+      30% {transform: translateX(20%) rotate(3deg);}
+      45% {transform: translateX(-15%) rotate(-3deg);}
+      60% {transform: translateX(10%) rotate(2deg);}
+      75% {transform: translateX(-5%) rotate(-1deg);}
+      100% {transform: translateX(0%);}
+    }
+    </style>
+  </head>
+  <body>
+    <div class="gameboard animated wobble">
+      <!-- El datadata-color es un atributo que uno manualmente le pone en el target y en data-set -->
+      <div id="celeste" class="color celeste left" data-color="celeste"></div>
+      <div id="violeta" class="color violeta right" data-color="violeta"></div>
+      <div id="naranja" class="color naranja left" data-color="naranja"></div>
+      <div id="verde" class="color verde right" data-color="verde"></div>
+      <button id="btnEmpezar" class="btn-start" onclick="empezarJuego()">Empezar a jugar!</button>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js">
+    </script>
+
+    <script>
+        /* ctr d dos cursores */
+        const celeste = document.getElementById(`celeste`)
+        const violeta = document.getElementById(`violeta`)
+        const naranja = document.getElementById(`naranja`)
+        const verde = document.getElementById(`verde`)
+        const btnEmpezar = document.getElementById(`btnEmpezar`)
+        const ULTIMO_NIVEL = 7
+
+        class Juego {
+            constructor() {
+                this.inicializar()
+                this.generarSecuencia()
+                setTimeout(this.siguenteNivel, 500)
+            }
+
+            inicializar() {
+              this.siguenteNivel = this.siguenteNivel.bind(this)
+              this.elegirColor = this.elegirColor.bind(this)
+              this.inicializar = this.inicializar.bind(this)
+              this.toggleBtnEmpezar()
+              this.nivel = 1
+              this.colores = {
+                  celeste,
+                  violeta,
+                  naranja,
+                  verde
+                }
+            }
+
+            toggleBtnEmpezar() {
+              if(btnEmpezar.classList.contains('hide')){
+                btnEmpezar.classList.remove('hide')
+              }else {
+                btnEmpezar.classList.add('hide')
+              }
+            }
+
+            generarSecuencia(){
+              this.secuencia = new Array(ULTIMO_NIVEL).fill(0).map(n => Math.floor(Math.random() * 4))
+            }
+
+            siguenteNivel() {
+              this.subnivel = 0
+              this.iluminarSecuencia()
+              this.agregarEventosClick()
+            }
+
+            transformarNumeroAColor(numero) {
+              switch (numero) {
+                case 0:
+                  return 'celeste'
+                case 1:
+                  return 'violeta'
+                case 2:
+                  return 'naranja'
+                case 3:
+                  return 'verde'
+              }
+            }
+
+            transformarColorANumero(color) {
+              switch (color) {
+                case 'celeste':
+                  return 0
+                case 'violeta':
+                  return 1
+                case 'naranja':
+                  return 2
+                case 'verde':
+                  return 3
+              }
+            }
+
+            iluminarSecuencia() {
+              for(let i = 0; i < this.nivel; i++) {
+                const color = this.transformarNumeroAColor(this.secuencia[i])
+                setTimeout(() => this.iluminarColor(color), 1000 * i)
+              }
+            }
+
+            iluminarColor(color) {
+              this.colores[color].classList.add('light')
+              setTimeout(() => this.apagarColor(color), 350)
+            }
+
+            apagarColor(color) {
+              this.colores[color].classList.remove('light')
+            }
+
+            agregarEventosClick() {
+              this.colores.celeste.addEventListener('click', this.elegirColor)
+              this.colores.naranja.addEventListener('click', this.elegirColor)
+              this.colores.violeta.addEventListener('click', this.elegirColor)
+              this.colores.verde.addEventListener('click', this.elegirColor)
+            }
+
+            eliminarEventosClick() {
+              this.colores.celeste.removeEventListener('click', this.elegirColor)
+              this.colores.naranja.removeEventListener('click', this.elegirColor)
+              this.colores.violeta.removeEventListener('click', this.elegirColor)
+              this.colores.verde.removeEventListener('click', this.elegirColor)
+            }
+
+            elegirColor(ev) {
+              const nombreColor = ev.target.dataset.color
+              const numeroColor = this.transformarColorANumero(nombreColor)
+              this.iluminarColor(nombreColor)
+              if (numeroColor === this.secuencia[this.subnivel]) {
+                this.subnivel++
+                if (this.subnivel === this.nivel) {
+                  this.nivel++
+                  this.eliminarEventosClick()
+                  if(this.nivel === (ULTIMO_NIVEL + 1)){
+                    // Gano
+                    this.ganoElJuego()
+                  }else {
+                    setTimeout(this.siguenteNivel, 1500)
+                  }
+                }
+              }else {
+                // Perdio
+                this.perdioJuego()
+              }
+            }
+
+
+            ganoElJuego() {
+              swal('Simón dice Game', 'Felicidades','success')
+              .then(this.inicializar)
+            }
+
+            perdioJuego() {
+              swal('Simón dice Game', 'Lo siento, perdiste','error')
+              .then(()=> {
+                this.eliminarEventosClick()
+                this.inicializar()
+              })
+            }
+        }
+
+        function empezarJuego() {
+           window.juego = new Juego()
+          }
+    </script>
+  </body>
+</html>
