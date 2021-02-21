@@ -44,17 +44,17 @@ a {
 
 .description {
     margin-bottom: 3.6rem;
+    width: 100%;
 }
 
 .container {
     display: flex;
     justify-content: space-between;
     text-align: center;
-    align-items: top;
+    height: 300px;
 }
 
 .container  div {
-    /* height: 35vh; */
     width: 33%;
     text-align: center;
 }
@@ -63,28 +63,4 @@ a {
     margin-left: 12px;
     width: 30px;
     cursor: pointer;
-}
-
-#circles-top {
-/*     border: 18px rgb(11, 45, 196) dotted;
-    border-radius: 50%;
-    position: relative;
-    top: 0;
-    left: 1;
-    right: 0;
-    bottom: 0;
-    width: 500px;
-    height: 500px; */
-}
-
-#circles-bottom {
-    /* border: 18px rgb(11, 45, 196) dotted;
-    border-radius: 50%;
-    position: relative; */
-    /* top: 143vh;
-    left: 40vw;
-    right: 0px; */
-    /* bottom: 1000px; */
-    /* width: 400px;
-    height: 400px; */
 }
