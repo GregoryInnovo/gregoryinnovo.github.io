@@ -57,10 +57,6 @@ a {
     height: 300px;
 }
 
-div > :hover {
-    transform: scale(1.08);
-}
-
 .container  div {
     width: 33%;
     text-align: center;
@@ -82,4 +78,13 @@ header {
 header > div {
     padding-top: 60px;
     margin-left: 120px;
+}
+
+.c1 {
+    background-color: #0B2DCF;
+    position: absolute;
+    left: 10px;
+    width: 50px;
+    top: 0px;
+    height: 100rem;
 }
