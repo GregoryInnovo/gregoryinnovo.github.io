@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 62.5%;
+    font-family: 'Noto Sans JP', sans-serif;
+    padding: 100px;
+}
+
+h1 {
+    font-size: 3.4rem;
+}
+
+h2, h3 {
+    font-size: 2.6rem;
+}
+
+h1, h2, h3 {
+    margin-bottom: 1.4rem;
+    font-weight: bold;
+}
+
+p, li {
+    margin-bottom: 1.2rem;
+    font-size: 1.4rem;
+}
+
+h3 {
+    font-size: 1.8rem;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    color: rgb(11, 45, 196);
+}
+
+.description {
+    margin-bottom: 3.6rem;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    align-items: top;
+}
+
+.container  div {
+    /* height: 35vh; */
+    width: 33%;
+    text-align: center;
+}
+
+#icon-github, #icon-twitter {
+    margin-left: 12px;
+    width: 30px;
+    cursor: pointer;
+}
+
+#circles-top {
+/*     border: 18px rgb(11, 45, 196) dotted;
+    border-radius: 50%;
+    position: relative;
+    top: 0;
+    left: 1;
+    right: 0;
+    bottom: 0;
+    width: 500px;
+    height: 500px; */
+}
+
+#circles-bottom {
+    /* border: 18px rgb(11, 45, 196) dotted;
+    border-radius: 50%;
+    position: relative; */
+    /* top: 143vh;
+    left: 40vw;
+    right: 0px; */
+    /* bottom: 1000px; */
+    /* width: 400px;
+    height: 400px; */
+}
