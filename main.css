@@ -10,6 +10,7 @@
   padding: 0;
 }
 
+/* The height 100vh no allow scroll and the size is static and proportional */
 .container {
   display: grid;
   height: 100%;
@@ -19,7 +20,7 @@
     "nav nav nav nav"
     "header header header header"
     "sidebar main main main"
-    "sidebar content1 content2 content3"
+    "sidebar proyect1 proyect2 proyect3"
     "sidebar footer footer footer";
   grid-gap: 0.2rem;
   font-family: var(--main-font);
@@ -58,11 +59,25 @@ main {
   padding-top: var(--main-padding);
 }
 
-#content1 {
+#proyect1 > p, #proyect2 > p, #proyect3 > p{
+    font-weight: 800;
+    color: white;
+}
+
+#proyect1 > button, #proyect2 > button, #proyect3 > button{
+    position: relative;
+    right: 0px;
+    top: 100px;
+}
+
+#proyect1 {
   background: #6fffd2;
-  grid-area: content1;
+  grid-area: proyect1;
   border-radius: var(--main-radius);
   padding-top: var(--main-padding);
+  background-image: url("https://images.unsplash.com/photo-1620926444904-8e4726a5b968?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80");
+  background-position: center;
+  background-size: cover;
 }
 
 #content1 > button {
@@ -73,14 +88,14 @@ main {
 
 #content2 {
   background: #64ffda;
-  grid-area: content2;
+  grid-area: proyect2;
   border-radius: var(--main-radius);
   padding-top: var(--main-padding);
 }
 
-#content3 {
+#proyect3 {
   background: #73ffba;
-  grid-area: content3;
+  grid-area: proyect3;
   border-radius: var(--main-radius);
   padding-top: var(--main-padding);
 }
@@ -101,9 +116,9 @@ footer {
       "header"
       "sidebar"
       "main"
-      "content1"
-      "content2"
-      "content3"
+      "proyect1"
+      "proyect2"
+      "proyect3"
       "footer";
     grid-gap: 0.2rem;
   }
