@@ -4,17 +4,23 @@
   "description": "Porfalio",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/GregoryInnovo/gregoryinnovo.github.io.git"
   },
-  "keywords": ["portafolio"],
+  "keywords": [
+    "portafolio"
+  ],
   "author": "GregoryInnovo",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/GregoryInnovo/gregoryinnovo.github.io/issues"
   },
-  "homepage": "https://github.com/GregoryInnovo/gregoryinnovo.github.io#readme"
+  "homepage": "https://github.com/GregoryInnovo/gregoryinnovo.github.io#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
