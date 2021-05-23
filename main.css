@@ -2,6 +2,9 @@
   --main-font: "Inter", sans-serif;
   --main-radius: 5px;
   --main-padding: 5px;
+
+  --primary-color: #f5d22b;
+  --secondary-color: #342bf5;
 }
 
 * {
@@ -10,12 +13,20 @@
   padding: 0;
 }
 
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.6rem;
+  color: white;
+}
+
 /* The height 100vh no allow scroll and the size is static and proportional */
 .container {
   display: grid;
   height: 100%;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: 0.2fr 16.5fr 11fr 11fr 9.8fr;
+  grid-template-rows: 3.2fr 16.5fr 11fr 11fr 9.8fr;
   grid-template-areas:
     "nav nav nav nav"
     "header header header header"
@@ -28,7 +39,6 @@
   /* text-transform: uppercase; */
   font-size: 12px;
   color: #004d40;
-  text-align: center;
 }
 
 nav {
@@ -39,17 +49,19 @@ nav {
 }
 
 header {
-    background: #1de9b6;
-    grid-area: header;
-    border-radius: var(--main-radius);
-    padding-top: var(--main-padding);
+  /* background: #1de9b6; */
+  background: var(--primary-color);
+  grid-area: header;
+  border-radius: var(--main-radius);
+  padding-top: var(--main-padding);
 }
 
 main {
-  background: #84ffff;
+  background: #342bf5;
   grid-area: main;
   border-radius: var(--main-radius);
   padding-top: var(--main-padding);
+  color: white;
 }
 
 #sidebar {
@@ -62,6 +74,7 @@ main {
   border-radius: var(--main-radius);
   padding-top: var(--main-padding);
   color: black;
+  text-align: center;
   padding: 1.2rem;
 }
 
@@ -86,7 +99,7 @@ img {
 
 .main-contact {
   font-size: 0.8rem;
-  margin-top:0.8rem;
+  margin-top: 0.8rem;
 }
 
 .main-description {
@@ -103,17 +116,27 @@ img {
   text-decoration: none;
 }
 
-#content1 > p, #content2 > p, #content3 > p{
-    font-weight: 800;
+#content1 > p,
+#content2 > p,
+#content3 > p {
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 800;
 }
 
-#content1 > button, #content2 > button, #content3 > button{
+/* #content1 > button, #content2 > button, #content3 > button{
     position: relative;
     right: 0px;
     top: 100px;
-}
+} */
 
-#content1 {
+#content1,
+#content2,
+#content3 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
   background: #6fffd2;
   grid-area: content1;
   border-radius: var(--main-radius);
@@ -121,30 +144,44 @@ img {
   background-image: url("https://images.unsplash.com/photo-1620926444904-8e4726a5b968?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80");
   background-position: center;
   background-size: cover;
+  padding: 1rem 1rem;
 }
 
-#content1 > button {
-  position: relative;
-  top: 100px;
-  right: 25%;
+.btn-review {
+  background-color: transparent;
+  border: 1px solid white;
+  border-radius: 8rem;
+  color: white;
+  font-family: var(--main-font);
+  font-weight: 800;
+  padding: 0.4rem 1.4rem;
+}
+
+.btn-review:hover {
+  background-color: var(--primary-color);
+  color: black;
+}
+
+button {
+  cursor: pointer;
 }
 
 #content2 {
-  background: #64ffda;
+  /* background: #64ffda; */
   grid-area: content2;
-  border-radius: var(--main-radius);
-  padding-top: var(--main-padding);
+  /* border-radius: var(--main-radius);
+  padding-top: var(--main-padding); */
 }
 
 #content3 {
-  background: #73ffba;
+  /* background: #73ffba; */
   grid-area: content3;
-  border-radius: var(--main-radius);
-  padding-top: var(--main-padding);
+  /* border-radius: var(--main-radius);
+  padding-top: var(--main-padding); */
 }
 
 footer {
-  background: #1de9b6;
+  background: var(--secondary-color);
   grid-area: footer;
   border-radius: var(--main-radius);
   padding-top: var(--main-padding);
@@ -154,7 +191,7 @@ footer {
   display: none;
 }
 
-@media only screen and (max-width: 650px) {
+@media only screen and (max-width: 790px) {
   .container {
     grid-template-columns: 1fr;
     grid-template-rows: 0.4fr 20fr 9.4fr 10fr 10fr 10fr 10fr 1fr;
@@ -170,3 +207,12 @@ footer {
     grid-gap: 0.2rem;
   }
 }
+
+/* Que me apasiona?
+  me gusta hacer...
+  Experiencias...
+  El proyecto que hagoo
+  Mi proyecto estrella
+  Proyecto reconocido
+
+*/
