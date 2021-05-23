@@ -4,13 +4,14 @@
   --main-padding: 5px;
 
   --primary-color: #f5d22b;
-  --secondary-color: #342bf5;
+  --secondary-color: #2B4BF5;
 }
 
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  text-decoration: none;
 }
 
 header {
@@ -26,7 +27,7 @@ header {
   display: grid;
   height: 100%;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: 3.2fr 16.5fr 11fr 11fr 9.8fr;
+  grid-template-rows: 3fr 16.5fr 11fr 11fr 9.8fr;
   grid-template-areas:
     "nav nav nav nav"
     "header header header header"
@@ -42,10 +43,20 @@ header {
 }
 
 nav {
-  background: #a7ffeb;
+  background: var(--primary-color);
   grid-area: nav;
   border-radius: var(--main-radius);
-  padding-top: var(--main-padding);
+  display: flex;
+  align-items: center;
+  font-size: 1.2rem;
+  justify-content: space-between;
+  padding: 0 3.7rem;
+}
+
+nav > a {
+  color: black;
+  font-size: 1.3rem;
+  font-weight: 800;
 }
 
 header {
@@ -57,7 +68,7 @@ header {
 }
 
 main {
-  background: #342bf5;
+  background: var(--secondary-color);
   grid-area: main;
   border-radius: var(--main-radius);
   padding-top: var(--main-padding);
@@ -113,7 +124,6 @@ img {
 
 .main-logo > a {
   margin: 1rem 1rem;
-  text-decoration: none;
 }
 
 #content1 > p,
@@ -187,8 +197,24 @@ footer {
   padding-top: var(--main-padding);
 }
 
+/* width */
 ::-webkit-scrollbar {
-  display: none;
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
 
 @media only screen and (max-width: 790px) {
@@ -214,5 +240,4 @@ footer {
   El proyecto que hagoo
   Mi proyecto estrella
   Proyecto reconocido
-
 */
