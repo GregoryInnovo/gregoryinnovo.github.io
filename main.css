@@ -4,7 +4,7 @@
   --main-padding: 5px;
 
   --primary-color: #f5d22b;
-  --secondary-color: #2B4BF5;
+  --secondary-color: #2b4bf5;
 }
 
 * {
@@ -27,7 +27,7 @@ header {
   display: grid;
   height: 100%;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: 3fr 16.5fr 11fr 11fr 9.8fr;
+  grid-template-rows: 3fr 16.5fr 5fr 11fr 9.8fr;
   grid-template-areas:
     "nav nav nav nav"
     "header header header header"
@@ -73,6 +73,26 @@ main {
   border-radius: var(--main-radius);
   padding-top: var(--main-padding);
   color: white;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+}
+
+.main-container {
+  width: 250px;
+  height: fit-content;
+}
+
+.main-container > p {
+  font-size: 0.8rem;
+  margin-top: 0.6rem;
+}
+
+.main-container__item {
+  font-weight: 800;
+  font-size: 1.2rem;
 }
 
 #sidebar {
