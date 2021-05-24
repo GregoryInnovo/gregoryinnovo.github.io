@@ -5,6 +5,7 @@
 
   --primary-color: #f5d22b;
   --secondary-color: #2b4bf5;
+  /* --secondary-color: #090979; */
 }
 
 * {
@@ -27,12 +28,13 @@ header {
   display: grid;
   height: 100%;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: 3fr 16.5fr 5fr 11fr 9.8fr;
+  grid-template-rows: 2fr 22.5fr 7fr 12fr 12fr 9.8fr;
   grid-template-areas:
     "nav nav nav nav"
     "header header header header"
     "sidebar main main main"
     "sidebar content1 content2 content3"
+    "sidebar content4 content5 content6"
     "footer footer footer footer";
   grid-gap: 0.2rem;
   font-family: var(--main-font);
@@ -56,15 +58,20 @@ nav {
 nav > a {
   color: black;
   font-size: 1.3rem;
-  font-weight: 800;
+  font-weight: bold;
 }
 
 header {
-  /* background: #1de9b6; */
-  background: var(--primary-color);
+  /* background: rgb(245, 210, 43); */
+  /* background: linear-gradient(
+    180deg,
+    rgba(245, 210, 43, 0.5) 0%,
+    rgba(43, 75, 245, 0.5) 100%
+  ); */
+  /* background: black; */
   grid-area: header;
   border-radius: var(--main-radius);
-  padding-top: var(--main-padding);
+  /* padding-top: var(--main-padding); */
 }
 
 main {
@@ -148,21 +155,27 @@ img {
 
 #content1 > p,
 #content2 > p,
-#content3 > p {
+#content3 > p,
+#content4 > p,
+#content5 > p,
+#content6 > p {
   color: white;
-  font-size: 1.2rem;
+  font-size: 0.8rem;
   font-weight: 800;
 }
 
-/* #content1 > button, #content2 > button, #content3 > button{
-    position: relative;
-    right: 0px;
-    top: 100px;
-} */
+.content1-info > p {
+  color: white;
+  font-size: 0.8rem;
+  font-weight: 800;
+}
 
 #content1,
 #content2,
-#content3 {
+#content3,
+#content4,
+#content5,
+#content6 {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -177,11 +190,54 @@ img {
   padding: 1rem 1rem;
 }
 
+#content1 {
+  background-repeat: no-repeat;
+  background-position: 9%;
+  background-image: url("./assets/img/Foodhy.PNG");
+}
+
+#content2 {
+  background-image: url("./assets/img/CB_Proyect.PNG");
+  background-repeat: no-repeat;
+  /* background: #64ffda; */
+  grid-area: content2;
+  /* border-radius: var(--main-radius);
+    padding-top: var(--main-padding); */
+}
+
+#content3 {
+  background-image: url("./assets/img/la-aventura-de-la-creacion.jpg");
+  background-repeat: no-repeat;
+  background-position: 10%;
+  /* background: #73ffba; */
+  grid-area: content3;
+  /* border-radius: var(--main-radius);
+    padding-top: var(--main-padding); */
+}
+
+#content4 {
+  background-image: url("./assets/img/webpages.PNG");
+  background-repeat: no-repeat;
+  /* background-position: 10%; */
+  grid-area: content4;
+}
+
+#content5 {
+  grid-area: content5;
+}
+
+#content6 {
+  background-image: url("./assets/img/Design_Proyect.PNG");
+  background-repeat: no-repeat;
+  /* background-position: 10%; */
+  grid-area: content6;
+}
+
 .btn-review {
-  background-color: transparent;
+  background-color: white;
   border: 1px solid white;
   border-radius: 8rem;
-  color: white;
+  color: black;
   font-family: var(--main-font);
   font-weight: 800;
   padding: 0.4rem 1.4rem;
@@ -196,25 +252,27 @@ button {
   cursor: pointer;
 }
 
-#content2 {
-  /* background: #64ffda; */
-  grid-area: content2;
-  /* border-radius: var(--main-radius);
-  padding-top: var(--main-padding); */
-}
-
-#content3 {
-  /* background: #73ffba; */
-  grid-area: content3;
-  /* border-radius: var(--main-radius);
-  padding-top: var(--main-padding); */
-}
-
 footer {
   background: var(--secondary-color);
   grid-area: footer;
   border-radius: var(--main-radius);
   padding-top: var(--main-padding);
+  color: white;
+}
+
+.footer-container {
+  padding: 2rem 0rem 0rem 2rem;
+  width: 50%;
+}
+
+.footer-container > p {
+  font-size: 1.2rem;
+  font-weight: 800;
+}
+
+.footer-container__item > p {
+  font-size: 0.8rem;
+  margin-top: 0.8rem;
 }
 
 /* width */
@@ -229,7 +287,7 @@ footer {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #888;
+  background: rgb(136, 136, 136);
 }
 
 /* Handle on hover */
@@ -237,10 +295,16 @@ footer {
   background: #555;
 }
 
+video {
+  width: 100%;
+  height: 320;
+  /* filter: blur(1.3px); */
+}
+
 @media only screen and (max-width: 790px) {
   .container {
     grid-template-columns: 1fr;
-    grid-template-rows: 0.4fr 20fr 9.4fr 10fr 10fr 10fr 10fr 1fr;
+    grid-template-rows: 1.5fr 5fr 9.4fr 10fr 10fr 10fr 10fr 10fr 10fr 10fr 12fr;
     grid-template-areas:
       "nav"
       "header"
@@ -249,8 +313,26 @@ footer {
       "content1"
       "content2"
       "content3"
+      "content4"
+      "content5"
+      "content6"
       "footer";
     grid-gap: 0.2rem;
+  }
+
+  nav {
+    justify-content: space-between;
+    padding: 0 1.7rem;
+  }
+
+  nav > a {
+    font-size: 0.8rem;
+  }
+
+  video {
+    width: 100%;
+    height: auto;
+    /* filter: blur(1.3px); */
   }
 }
 
