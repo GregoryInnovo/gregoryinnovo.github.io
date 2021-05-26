@@ -1,0 +1,53 @@
+:root {
+  --main-font: "Inter", sans-serif;
+  --primary-color: #f5d22b;
+  --secondary-color: #29299c;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+header {
+  background-image: url("../../assets/img/Foodhy.PNG");
+  width: 100%;
+  height: 720px;
+}
+
+main {
+  width: 80%;
+  height: fit-content;
+  margin: auto;
+  margin: 4rem;
+}
+
+p {
+  font-family: var(--main-font);
+}
+
+.img-app {
+  background-image: url("../../assets/img/App-Nutricional-Foodhy-745x559.jpg");
+  width: 100%;
+  height: auto;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--secondary-color);
+}
