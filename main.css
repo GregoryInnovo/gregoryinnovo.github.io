@@ -336,10 +336,11 @@ video {
   nav {
     justify-content: space-between;
     padding: 0 1.7rem;
+    font-size: 0.6rem;
   }
 
   nav > a {
-    font-size: 0.8rem;
+    font-size: 0.6rem;
   }
 
   video {
