@@ -36,7 +36,7 @@ header {
   display: grid;
   height: 100%;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: 2fr 90vh 5fr 7fr 7fr 8fr;
+  grid-template-rows: 2fr 20fr 5fr 7fr 7fr 8fr;
   grid-template-areas:
     "nav nav nav nav"
     "header header header header"
