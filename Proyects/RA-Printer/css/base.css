@@ -159,6 +159,9 @@ body{
 }
 
 /* Galeria */
+.hr-spacing{
+  margin-bottom: 60px;
+}
 .img-Galeria img{
   width: 100%;
   padding: 20px 0;
@@ -166,12 +169,15 @@ body{
 
 .txt--proyectoD{
   text-align: center;
-  margin-top: 50px;
 }
 .txt--proyectoD h2{
   font-size: 2.5rem;
   text-transform: uppercase;
   margin-bottom: 40px;
+}
+.txt--proyectoD p{
+  text-align: left;
+  padding: 20px;
 }
 
 

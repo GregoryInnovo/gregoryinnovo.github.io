@@ -11,14 +11,38 @@
     .top-img2{
       display: none;
     }
+    .top-img3{
+        display: none;
+    }
+    .top-img3a{
+        display: block;
+    }
     .top-img4{
       display: block;
+    }
+    .top-img5{
+        display: none;
+      }
+    .top-img5a{
+        display: block;
+    }
+    .top-img7{
+        display: none;
+      }
+    .top-img7a{
+        display: block;
+    }
+    .top-img8{
+        display: none;
+      }
+    .top-img8a{
+        display: block;
     }
     .txt--proyectoD h2{
       font-size: 2.5rem;
       text-transform: uppercase;
       margin-bottom: 10px;
-      margin-top: -50px;
+      margin-top: -10px;
     }
     /* Programas a necesitar */
     .txt-proyect-inf h1{
@@ -52,6 +76,24 @@
         cursor: pointer;
         margin-bottom: 100px;
       }
+      /* title 3D */
+      .title_3d{
+          font-size: 2rem !important;
+          text-align: center;
+      }
+      /* Slider and txt */
+      .cont-txt-slider {
+          padding: 40px;
+          position: relative;
+          margin-top: -20px;
+          left: -40px;
+      }
+      .cont-txt-slider p{
+        font-size: 18px;
+        color: #1a1a1a;
+        font-weight: 600;
+      }
+      /*  */
   }
   
 
@@ -70,14 +112,38 @@
     .top-img2{
       display: block;
     }
+    .top-img3{
+        display: block;
+    }
+    .top-img3a{
+        display: none;
+    }
     .top-img4{
       display: none;
+    }
+    .top-img5{
+        display: block;
+      }
+    .top-img5a{
+        display: none;
+    }
+    .top-img7{
+        display: block;
+    }
+    .top-img7a{
+        display: none;
+    }
+    .top-img8{
+        display: block;
+    }
+    .top-img8a{
+        display: none;
     }
     .txt--proyectoD h2{
       font-size: 2.5rem;
       text-transform: uppercase;
       margin-bottom: 40px;
-      margin-top: 120px;
+      margin-top: 60px;
     }
     /* Programas a necesitar */
     .txt-proyect-inf h1{
@@ -114,6 +180,21 @@
         cursor: pointer;
         margin-bottom: 90px;
       }
-      
-    
+      /* title 3D */
+      .title_3d{
+        font-size: 4rem !important;
+        text-align: center;
+    }
+    /* Slider and txt */
+    .cont-txt-slider {
+        padding: 40px;
+        position: relative;
+        margin-top: 20px;
+    }
+    .cont-txt-slider p{
+        font-size: 18px;
+        color: #1a1a1a;
+        font-weight: 600;
+      }
+    /*  */
   }
