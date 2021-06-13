@@ -1,0 +1,119 @@
+/* Responsive */
+
+@media (min-width:360px){
+    .container-card{
+      flex-wrap: wrap;
+    }
+    .container-card .card img{
+      width: 330px;
+    }
+    /* Gallery */
+    .top-img2{
+      display: none;
+    }
+    .top-img4{
+      display: block;
+    }
+    .txt--proyectoD h2{
+      font-size: 2.5rem;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      margin-top: -50px;
+    }
+    /* Programas a necesitar */
+    .txt-proyect-inf h1{
+        font-size: 3rem;
+        text-align: center;
+    }
+    .container_team{
+        display: block;
+        justify-content: center;
+        width: 100%;
+        margin: 0 auto;
+        margin-left: -29px;
+    }
+    .profile .name{
+        position: absolute;
+        background-color: #129b6d;
+        color: #fff;
+        padding: 15px 30px;
+        border-radius: 100px;
+        bottom: 29px; 
+        left: 50%;
+        white-space: nowrap;
+        transform: translate(-50%, -50px);
+        letter-spacing: 1px;
+        font-size: 20px;
+        opacity: 0;
+        transition: all 0.3s;
+      }
+      .profile img{
+        max-width: 100%;
+        cursor: pointer;
+        margin-bottom: 100px;
+      }
+  }
+  
+
+  @media (min-width:1200px) {
+    .container, .container-lg, .container-md, .container-sm, .container-xl {
+      max-width: 1300px;
+    }
+    .container-card .card img{
+      width: 300px;
+    }
+    .container-card{
+      min-height: 500px;
+      flex-wrap: nowrap;
+    }
+    /* Gallery */
+    .top-img2{
+      display: block;
+    }
+    .top-img4{
+      display: none;
+    }
+    .txt--proyectoD h2{
+      font-size: 2.5rem;
+      text-transform: uppercase;
+      margin-bottom: 40px;
+      margin-top: 120px;
+    }
+    /* Programas a necesitar */
+    .txt-proyect-inf h1{
+        font-size: 4rem;
+        text-align: center;
+        text-transform: uppercase;
+        color: #030303a6;
+    }
+    .container_team{
+        display: flex;
+        justify-content: center;
+        width: 90%;
+        max-width: 1440px;
+        margin: 0 auto;
+    }
+    .profile .name{
+        position: absolute;
+        background-color: #129b6d;
+        color: #fff;
+        padding: 15px 30px;
+        border-radius: 100px;
+        bottom: -10px; 
+        left: 55%;
+        white-space: nowrap;
+        transform: translate(-50%, -50px);
+        letter-spacing: 1px;
+        font-size: 20px;
+        opacity: 0;
+        transition: all 0.3s;
+      }
+      .profile img{
+        max-width: 130%;
+        padding: 0 80px;
+        cursor: pointer;
+        margin-bottom: 90px;
+      }
+      
+    
+  }
