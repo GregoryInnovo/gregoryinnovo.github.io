@@ -1,3 +1,7 @@
-Game based "Simon dice" from 
-platzi course , little modification
-to animate de rotation of the circle.
+# Gregory Portafolio
+
+This project is my portfolio and showing:
+* Personal information
+* Contact information
+* Personal Blog
+* and featured projects
