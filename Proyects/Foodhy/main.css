@@ -76,6 +76,35 @@ p {
   cursor: pointer;
 }
 
+.explanation-project {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  width: 100%;
+  height: auto;
+  margin-bottom: 340px;
+}
+
+.video-explanation, video{
+  width: 340px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.text-explanation {
+  width: 240px;
+  text-align: center;
+  padding: 15rem 0rem;
+}
+
+.text-explanation > p {
+  margin: 2rem 0rem;
+  font-size: 1.8rem;
+}
+
+.video-explanation, .text-explanation {
+  margin-top: 12px;
+}
+
 /* width */
 ::-webkit-scrollbar {
   width: 10px;
