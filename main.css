@@ -208,22 +208,23 @@ img {
   background-repeat: no-repeat;
   background-position: 7%;
   background-image: url("./assets/img/Foodhy.PNG");
-  box-shadow: 0rem 0.5rem var(--gray);
+  box-shadow: 0 4px 8px 0 rgba(128, 128, 128, 0.315), 0 6px 20px 0 rgba(128, 128, 128, 0.315);
 }
 
 #content2 {
   background-image: url("./assets/img/CB_Proyect.jpg");
   background-repeat: no-repeat;
   background-size: revert;
-  box-shadow: 0rem 0.5rem var(--gray);
+  box-shadow: 0 4px 8px 0 rgba(128, 128, 128, 0.315), 0 6px 20px 0 rgba(128, 128, 128, 0.315);
   grid-area: content2;
 }
 
+/* link: https://www.w3schools.com/css/css3_shadows_box.asp */
 #content3 {
   background-image: url("./assets/img/la-aventura-de-la-creacion.jpg");
   background-repeat: no-repeat;
   background-position: 10%;
-  box-shadow: 0rem 0.5rem var(--gray);
+  box-shadow: 0 4px 8px 0 rgba(128, 128, 128, 0.315), 0 6px 20px 0 rgba(128, 128, 128, 0.315);
   /* background: #73ffba; */
   grid-area: content3;
   /* border-radius: var(--main-radius);
