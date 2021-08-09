@@ -42,3 +42,9 @@ main {
   color: red;
   font-weight: bold;
 }
+
+.link-info {
+  color: var(--primary-color);
+  text-align: center;
+  margin-top: 1rem;
+}
