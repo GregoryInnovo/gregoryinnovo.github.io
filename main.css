@@ -351,7 +351,7 @@ video {
   }
 
   nav > a {
-    font-size: 0.8rem;
+    font-size: 1.4rem
   }
 
   video {
@@ -372,6 +372,24 @@ video {
   #content1, #content2, #content3 {
     box-shadow: none;
   }
+}
+
+@media only screen and (max-width: 600px) {
+  nav > a {
+    font-size: 0.85rem
+  }
+}
+
+.animated {
+  animation-name: pulse;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1);}
+  50% { transform: scale(1.1);}
+  100% { transform: scale(1);}
 }
 
 /* Que me apasiona?
