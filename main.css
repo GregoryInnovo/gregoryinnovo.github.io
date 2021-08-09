@@ -360,6 +360,10 @@ video {
     /* filter: blur(1.3px); */
   }
 
+  #sidebar {
+    margin-left: 0rem;
+  }
+
   .main-container {
     width: 340px;
     height: fit-content;
