@@ -125,7 +125,7 @@ main {
 .main-profile {
   width: 200px;
   height: 200px;
-  object-position: top;
+  object-position: top !important;
   object-fit: cover;
   padding: 0.5rem;
 }
