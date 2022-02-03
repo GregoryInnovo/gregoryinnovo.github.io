@@ -125,9 +125,8 @@ main {
 .main-profile {
   width: 200px;
   height: 200px;
+  object-position: top;
   object-fit: cover;
-  object-position: center;
-  border-radius: 8rem;
   padding: 0.5rem;
 }
 
@@ -165,7 +164,7 @@ img {
   color: white;
   font-size: 0.8rem;
   font-weight: 600;
-  color: var(--primary-color)
+  color: var(--primary-color);
 }
 
 #content3 > p,
@@ -176,7 +175,6 @@ img {
   font-weight: 600;
   color: var(--secondary-color-color);
 }
-
 
 .content1-info > p {
   color: white;
@@ -208,14 +206,16 @@ img {
   background-repeat: no-repeat;
   background-position: 7%;
   background-image: url("./assets/img/Foodhy.PNG");
-  box-shadow: 0 4px 8px 0 rgba(128, 128, 128, 0.315), 0 6px 20px 0 rgba(128, 128, 128, 0.315);
+  box-shadow: 0 4px 8px 0 rgba(128, 128, 128, 0.315),
+    0 6px 20px 0 rgba(128, 128, 128, 0.315);
 }
 
 #content2 {
   background-image: url("./assets/img/CB_Proyect.jpg");
   background-repeat: no-repeat;
   background-size: revert;
-  box-shadow: 0 4px 8px 0 rgba(128, 128, 128, 0.315), 0 6px 20px 0 rgba(128, 128, 128, 0.315);
+  box-shadow: 0 4px 8px 0 rgba(128, 128, 128, 0.315),
+    0 6px 20px 0 rgba(128, 128, 128, 0.315);
   grid-area: content2;
 }
 
@@ -224,7 +224,8 @@ img {
   background-image: url("./assets/img/la-aventura-de-la-creacion.jpg");
   background-repeat: no-repeat;
   background-position: 10%;
-  box-shadow: 0 4px 8px 0 rgba(128, 128, 128, 0.315), 0 6px 20px 0 rgba(128, 128, 128, 0.315);
+  box-shadow: 0 4px 8px 0 rgba(128, 128, 128, 0.315),
+    0 6px 20px 0 rgba(128, 128, 128, 0.315);
   /* background: #73ffba; */
   grid-area: content3;
   /* border-radius: var(--main-radius);
@@ -351,7 +352,7 @@ video {
   }
 
   nav > a {
-    font-size: 1.4rem
+    font-size: 1.4rem;
   }
 
   video {
@@ -369,14 +370,16 @@ video {
     height: fit-content;
   }
 
-  #content1, #content2, #content3 {
+  #content1,
+  #content2,
+  #content3 {
     box-shadow: none;
   }
 }
 
 @media only screen and (max-width: 600px) {
   nav > a {
-    font-size: 0.85rem
+    font-size: 0.85rem;
   }
 }
 
@@ -385,11 +388,19 @@ video {
   animation-duration: 2s;
   animation-iteration-count: infinite;
 }
-
+.main-profile {
+  border-radius: 8rem;
+}
 @keyframes pulse {
-  0% { transform: scale(1);}
-  50% { transform: scale(1.1);}
-  100% { transform: scale(1);}
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 /* Que me apasiona?
