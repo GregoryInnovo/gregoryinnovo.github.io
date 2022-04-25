@@ -4,7 +4,6 @@
   --main-padding: 5px;
 
   --primary-color: #f5d22b;
-  /* --secondary-color: #2b4bf5; */
   --secondary-color: #29299c;
   --gray: #222222;
 }
@@ -125,7 +124,7 @@ main {
 .main-profile {
   width: 200px;
   height: 200px;
-  object-position: top !important;
+  object-position: top;
   object-fit: cover;
   padding: 0.5rem;
 }
@@ -402,11 +401,3 @@ video {
     transform: scale(1);
   }
 }
-
-/* Que me apasiona?
-  me gusta hacer...
-  Experiencias...
-  El proyecto que hagoo
-  Mi proyecto estrella
-  Proyecto reconocido
-*/
