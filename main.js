@@ -234,12 +234,11 @@ if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
 })();
 
 /* ══════════════════════════════════════════════════════════════════
-   SCROLL REVEALS — Cards & Achievements
+   SCROLL REVEALS — Media Cards
    ══════════════════════════════════════════════════════════════════ */
 (function initScrollReveals() {
   if (typeof gsap === 'undefined') {
-    // Fallback
-    $$('.media-card, .achievement-item, .contact-heading, .contact-sub, .contact-links').forEach(el => {
+    $$('.media-card').forEach(el => {
       el.style.opacity = '1';
       el.style.transform = 'none';
     });
@@ -248,7 +247,6 @@ if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
 
   const d = (base) => prefersReducedMotion() ? 0 : base;
 
-  // Media cards
   $$('.media-card').forEach((card, i) => {
     gsap.to(card, {
       opacity: 1, y: 0,
@@ -262,50 +260,6 @@ if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
       },
     });
   });
-
-  // Achievement items
-  $$('.achievement-item').forEach((item, i) => {
-    gsap.to(item, {
-      opacity: 1, y: 0,
-      duration: d(0.6),
-      ease: 'power3.out',
-      delay: i * d(0.06),
-      scrollTrigger: {
-        trigger: item,
-        start: 'top 90%',
-        toggleActions: 'play none none none',
-      },
-    });
-  });
-
-  // Contact heading
-  const contactHeading = $('.contact-heading');
-  const contactSub = $('.contact-sub');
-  const contactLinks = $('.contact-links');
-
-  if (contactHeading) {
-    gsap.to(contactHeading, {
-      opacity: 1,
-      duration: d(0.9), ease: 'power3.out',
-      scrollTrigger: { trigger: contactHeading, start: 'top 85%' },
-    });
-  }
-  if (contactSub) {
-    gsap.to(contactSub, {
-      opacity: 1,
-      duration: d(0.7), ease: 'power3.out',
-      delay: d(0.15),
-      scrollTrigger: { trigger: contactSub, start: 'top 88%' },
-    });
-  }
-  if (contactLinks) {
-    gsap.to(contactLinks, {
-      opacity: 1,
-      duration: d(0.7), ease: 'power3.out',
-      delay: d(0.25),
-      scrollTrigger: { trigger: contactLinks, start: 'top 90%' },
-    });
-  }
 })();
 
 /* ══════════════════════════════════════════════════════════════════
@@ -417,4 +371,147 @@ if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
   window.addEventListener('resize', resize);
   resize();
   loop();
+})();
+
+/* ══════════════════════════════════════════════════════════════════
+   ACHIEVEMENTS — HORIZONTAL SCROLL GALLERY
+   ══════════════════════════════════════════════════════════════════ */
+(function initAchievementsGallery() {
+  if (typeof gsap === 'undefined') return;
+
+  const track   = $('#achievements-track');
+  const gallery = $('#achievements-gallery');
+  if (!track || !gallery) return;
+
+  const panels   = gsap.utils.toArray('.achievement-panel');
+  const pbarFill = $('#ach-pbar-fill');
+  const pbar     = $('.achievements-pbar');
+
+  if (prefersReducedMotion()) {
+    track.style.flexWrap = 'wrap';
+    panels.forEach(p => { p.style.width = '100%'; p.style.height = 'auto'; });
+    return;
+  }
+
+  function getScrollWidth() {
+    return Math.max(track.scrollWidth - window.innerWidth, 1);
+  }
+
+  const horizontalTween = gsap.to(track, {
+    x: () => -getScrollWidth(),
+    ease: 'none',
+    scrollTrigger: {
+      trigger: gallery,
+      pin: true,
+      scrub: 1,
+      end: () => `+=${getScrollWidth()}`,
+      invalidateOnRefresh: true,
+      onUpdate:    (self) => { if (pbarFill) pbarFill.style.width = `${self.progress * 100}%`; },
+      onEnter:     () => pbar && pbar.classList.add('visible'),
+      onLeave:     () => pbar && pbar.classList.remove('visible'),
+      onEnterBack: () => pbar && pbar.classList.add('visible'),
+      onLeaveBack: () => pbar && pbar.classList.remove('visible'),
+    },
+  });
+
+  panels.forEach((panel) => {
+    const inner = panel.querySelector('.achievement-panel-inner');
+    if (!inner) return;
+    gsap.set(inner, { opacity: 0.3, scale: 0.88 });
+    gsap.to(inner, {
+      opacity: 1, scale: 1,
+      ease: 'power2.out',
+      scrollTrigger: {
+        trigger: panel,
+        containerAnimation: horizontalTween,
+        start: 'left 80%',
+        end:   'left 30%',
+        scrub: 1,
+      },
+    });
+  });
+})();
+
+/* ══════════════════════════════════════════════════════════════════
+   CONTACT — TEXT REVEAL
+   ══════════════════════════════════════════════════════════════════ */
+(function initContactReveal() {
+  const headingEl = $('.contact-heading');
+  const subEl     = $('.contact-sub');
+  const linksEl   = $('.contact-links');
+
+  if (typeof gsap === 'undefined') {
+    [headingEl, subEl, linksEl].forEach(el => {
+      if (el) { el.style.opacity = '1'; el.style.transform = 'none'; }
+    });
+    return;
+  }
+
+  const d = (base) => prefersReducedMotion() ? 0 : base;
+
+  /* — Heading: clip-path wipe reveal (preserves gradient text) — */
+  if (headingEl) {
+    headingEl.style.opacity = '1';
+    gsap.fromTo(headingEl,
+      { clipPath: 'inset(0 100% 0 0)', y: 24 },
+      {
+        clipPath: 'inset(0 0% 0 0)', y: 0,
+        duration: d(1.0),
+        ease: 'power3.inOut',
+        scrollTrigger: {
+          trigger: headingEl,
+          start: 'top 85%',
+          toggleActions: 'play none none none',
+        },
+      }
+    );
+  }
+
+  /* — Sub: word-by-word reveal — */
+  if (subEl) {
+    const text = subEl.textContent.trim();
+    subEl.textContent = '';
+    subEl.style.opacity = '1';
+
+    text.split(' ').forEach((word, i, arr) => {
+      const span = document.createElement('span');
+      span.className = 'contact-word';
+      span.textContent = word;
+      subEl.appendChild(span);
+      if (i < arr.length - 1) subEl.appendChild(document.createTextNode(' '));
+    });
+
+    gsap.set('.contact-word', { y: 18, opacity: 0 });
+    gsap.to('.contact-word', {
+      y: 0, opacity: 1,
+      duration: d(0.55),
+      ease: 'power3.out',
+      stagger: d(0.05),
+      delay: d(0.15),
+      scrollTrigger: {
+        trigger: subEl,
+        start: 'top 88%',
+        toggleActions: 'play none none none',
+      },
+    });
+  }
+
+  /* — Buttons: staggered fade-up — */
+  if (linksEl) {
+    const btns = $$('.contact-btn', linksEl);
+    linksEl.style.opacity = '1';
+    gsap.set(btns, { y: 16, opacity: 0 });
+    gsap.to(btns, {
+      y: 0, opacity: 1,
+      duration: d(0.5),
+      ease: 'power3.out',
+      stagger: d(0.08),
+      delay: d(0.3),
+      scrollTrigger: {
+        trigger: linksEl,
+        start: 'top 90%',
+        toggleActions: 'play none none none',
+      },
+    });
+  }
 })();
