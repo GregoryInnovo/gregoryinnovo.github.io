@@ -1,160 +1,472 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="description" content="Gregson Murcia Castro portfolio" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Welcome to The Greg Spot</title>
-    <link rel="stylesheet" href="./main.css" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link rel="icon" href="./assets/icons/favicon.png" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600&display=swap"
-      rel="stylesheet"
-    />
-  </head>
-  <!-- 
-    The structure of the CSS follows BEM format:
-    https://css-tricks.com/bem-101/
-   -->
-  <body>
-    <div class="container">
-      <nav>
-        <a href="./Proyects/Blog/index.html" class="animated">The Greg Spot</a>
-        <a href="/#sidebar">About me</a>
-        <a href="/#content1">Projects</a>
-        <a href="/#footer">Achievements</a>
-      </nav>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Gregory Innovo — AI Software Engineer & Multimedia Engineer. Building LLM-powered agents, fullstack apps, and games from Cali, Colombia." />
+  <title>Gregory Innovo — Portfolio</title>
+  <link rel="icon" href="./assets/icons/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./main.css" />
+</head>
+<body>
 
-      <header>
-        <div>
-          <video autoplay muted loop>
-            <source
-              src="./assets/videos/crossing-biomes-teaser.mp4"
-              type="video/mp4"
-            />
-          </video>
-        </div>
-      </header>
+  <!-- ── NAV ──────────────────────────────────────────────────── -->
+  <nav class="nav" id="nav">
+    <a href="/" class="nav-logo">Gregory Innovo</a>
+    <div class="nav-links">
+      <a href="#about" class="nav-link">About</a>
+      <a href="#work" class="nav-link">Work</a>
+      <a href="#contact" class="nav-link">Contact</a>
+    </div>
+  </nav>
 
-      <main>
-        <div class="main-container">
-          <h3 class="main-container__item">Academic History</h3>
-          <p>Colegio Freinet - 2018</p>
-          <p>Multimedia Engineer - 2023</p>
-        </div>
+  <!-- ── HERO ─────────────────────────────────────────────────── -->
+  <section class="hero" id="hero">
+    <canvas class="hero-canvas" id="heroCanvas"></canvas>
+    <div class="hero-content">
+      <div class="hero-eyebrow">AI Software Engineer · Rappi</div>
+      <h1 class="hero-name" aria-label="Gregory Innovo">GREGORY INNOVO</h1>
+      <span class="hero-name-glitch hero-name-glitch--1" aria-hidden="true">GREGORY INNOVO</span>
+      <span class="hero-name-glitch hero-name-glitch--2" aria-hidden="true">GREGORY INNOVO</span>
+      <p class="hero-tagline">
+        Multimedia Engineer <span class="hero-tagline-sep">/</span> LLM Agent Builder
+      </p>
+    </div>
+    <div class="hero-scroll-cue" aria-hidden="true">
+      <span>Scroll</span>
+      <div class="hero-scroll-line"></div>
+    </div>
+  </section>
 
-        <div class="main-container">
-          <h3 class="main-container__item">My passions are</h3>
-          <p>Fullstack development (MERN)</p>
-          <p>Prototyping designs</p>
-        </div>
-
-        <div class="main-container">
-          <h3 class="main-container__item">Skills</h3>
-          <p>SCRUM</p>
-          <p>Self-taught learning</p>
-          <p>Version Control</p>
-        </div>
-      </main>
-      <section id="sidebar">
-        <picture>
-          <img
-            class="main-profile"
-            src="./assets/img/profileImg.jpg"
-            width="500"
-            height="500"
-            alt="profile image"
-          />
-        </picture>
-
-        <div class="main-name">
-          <p>Gregson Murcia Castro</p>
-          <h3>Multimedia Engineer</h3>
-        </div>
-
-        <div class="main-contact">
-          <p>gregson.murcia@uao.edu.co</p>
-          <p>3116291954</p>
-        </div>
-
-        <div class="main-description">
-          <p>
-            Student specializing in Web development and cross-platform
-            applications. Knowledge in Front/Back end, Mobile First, RESTful API
-            and Deployment. Also experience in Unity 3D for video games and
-            interactive experiences.
-          </p>
-        </div>
-
-        <div class="main-logo">
-          <a
-            href="https://www.linkedin.com/in/gregson-murcia-castro-b527a31a6/"
-          >
-            <img src="./assets/icons/LinkedIn.svg" alt="LinkedIn logo" />
-          </a>
-          <a href="https://github.com/GregoryInnovo">
-            <img src="./assets/icons/Github.svg" alt="GitHub logo" />
-          </a>
-          <a href="https://www.instagram.com/gregoryinnovo/">
-            <img src="./assets/icons/Instagram.svg" alt="Instagram logo" />
-          </a>
-        </div>
-      </section>
-      <div id="content1">
-        <p>Foodhy</p>
-        <a href="./Proyects/Foodhy/"
-          ><button class="btn-review">Review</button></a
-        >
+  <!-- ── ABOUT ─────────────────────────────────────────────────── -->
+  <section class="section about-section" id="about">
+    <div class="about-inner">
+      <div class="about-photo-wrap">
+        <img
+          class="about-photo"
+          src="./assets/img/profileImg.jpg"
+          alt="Gregson Murcia Castro"
+          width="400"
+          height="400"
+        />
       </div>
-      <div id="content2">
-        <p>Crossing Biomes</p>
-        <a href="https://appgallery.huawei.com/#/app/C102501697"
-          ><button class="btn-review">Review</button></a
-        >
-        <!-- <button class="btn-review" onclick="alert('Hola mundo')">Review</button> -->
-      </div>
-      <div id="content3">
-        <p>La aventura de la creación</p>
-        <a href="https://gregoryinnovo.itch.io/la-aventura-de-la-creacin"
-          ><button class="btn-review">Review</button></a
-        >
-      </div>
-
-      <footer id="footer">
-        <div class="footer-container">
-          <p>Achievements</p>
-          <div class="footer-container__item">
-            <a
-              class="footer-container__item space"
-              href="https://www.uao.edu.co/sinapsis-uao/conoce-los-emprendimientos-participantes-en-el-programa-de-negocios-digitales-de-sinapsis-uao/"
-              ><p>Red de emprendedores en Sinapsis UAO</p></a
-            >
-            <a
-              class="footer-container__item space"
-              href="https://www.uao.edu.co/ingenieria/la-aventura-de-la-creacion-recibe-mencion-de-honor-en-el-game-jam-lab-2020/"
-              ><p>Game Jam Lab 2020 a mejor juego educativo</p></a
-            >
-            <a class="footer-container__item space" href="/"
-              ><p>Finalista en la Huawei Develover challenge 2020</p></a
-            >
-            <a
-              class="footer-container__item space"
-              href="https://github.com/alejo02336/TomaNota"
-              ><p>Top 10 mejores proyectos en la hackathon MinTic 2021</p></a
-            >
-            <a
-              class="footer-container__item space"
-              href="https://www.youtube.com/watch?v=tFQBTVOkrtk"
-              ><p>
-                Primer lugar en la Hackathon de NTT Data Innovation Summit 2022
-                en el Grupo Media Collab
-              </p></a
-            >
+      <div class="about-content">
+        <div class="about-eyebrow">About me</div>
+        <h2 class="about-title">Multimedia Engineer<br />&amp; Entrepreneur</h2>
+        <p class="about-bio">
+          With a background in multimedia engineering, my interest in digital development has been shaped by a multidisciplinary perspective. Entrepreneur involved in two business incubators (Santander Explorer &amp; CAMPUS NOVA). Founder of <a href="https://mediacollab.pages.dev/" target="_blank" rel="noopener" class="about-bio-link">Media Collab</a>, the UAO student innovation group. Self-taught — never ceasing to learn. 13+ hackathons, $10K in prizes, and currently building AI-powered products with LLM agents &amp; MCP workflows at Rappi.
+        </p>
+        <div class="about-facts">
+          <div class="fact">
+            <span class="fact-num">13+</span>
+            <span class="fact-label">Hackathons</span>
+          </div>
+          <div class="fact">
+            <span class="fact-num">$10K</span>
+            <span class="fact-label">Prize Won</span>
+          </div>
+          <div class="fact">
+            <span class="fact-num">2</span>
+            <span class="fact-label">Startups</span>
+          </div>
+          <div class="fact">
+            <span class="fact-num">6+</span>
+            <span class="fact-label">Years Dev</span>
           </div>
         </div>
-      </footer>
+        <div class="about-social">
+          <a class="social-link" href="https://www.linkedin.com/in/gregson-murcia-castro-b527a31a6/" target="_blank" rel="noopener">
+            <img src="./assets/icons/LinkedIn.svg" alt="" /> LinkedIn
+          </a>
+          <a class="social-link" href="https://github.com/GregoryInnovo" target="_blank" rel="noopener">
+            <img src="./assets/icons/Github.svg" alt="" /> GitHub
+          </a>
+          <a class="social-link" href="https://www.instagram.com/gregoryinnovo/" target="_blank" rel="noopener">
+            <img src="./assets/icons/Instagram.svg" alt="" /> Instagram
+          </a>
+        </div>
+      </div>
     </div>
-  </body>
+  </section>
+
+  <!-- ── SELECTED WORK ─────────────────────────────────────────── -->
+  <section class="section work-section" id="work">
+    <div class="section-header">
+      <h2 class="section-title">SELECTED WORK</h2>
+      <button class="layout-toggle" id="layout-toggle" aria-label="Toggle gallery layout">
+        <span class="toggle-label-grid">Grid</span>
+        <span class="toggle-sep">/</span>
+        <span class="toggle-label-list">List</span>
+      </button>
+    </div>
+
+    <div class="media-gallery" id="mediaGallery">
+
+      <!-- Foodhy -->
+      <article class="media-card" data-index="0">
+        <div class="card-visual card-visual--1">
+          <div class="card-img" style="background-image: url('./assets/img/Foodhy.PNG')"></div>
+        </div>
+        <div class="card-body">
+          <div class="card-play" aria-hidden="true">
+            <svg viewBox="0 0 40 40" width="40" height="40" fill="none">
+              <circle cx="20" cy="20" r="19" stroke="currentColor" stroke-width="1.5"/>
+              <polygon points="16,13 30,20 16,27" fill="currentColor"/>
+            </svg>
+          </div>
+          <div class="card-meta">
+            <h3 class="card-title">Foodhy</h3>
+            <div class="card-tags">
+              <span class="tag">AI · LLM</span>
+              <span class="tag">Mobile</span>
+              <span class="tag">Startup</span>
+            </div>
+          </div>
+        </div>
+        <div class="card-index">01</div>
+        <a class="card-link" href="https://foodhy.com.co/" aria-label="View Foodhy project"></a>
+      </article>
+
+      <!-- Pocket -->
+      <article class="media-card" data-index="1">
+        <div class="card-visual card-visual--2">
+          <div class="card-img" style="background-image: url('./assets/img/pocket.png'), linear-gradient(135deg, #1e3a5f 0%, #0d1b2a 100%);"></div>
+        </div>
+        <div class="card-body">
+          <div class="card-play" aria-hidden="true">
+            <svg viewBox="0 0 40 40" width="40" height="40" fill="none">
+              <circle cx="20" cy="20" r="19" stroke="currentColor" stroke-width="1.5"/>
+              <polygon points="16,13 30,20 16,27" fill="currentColor"/>
+            </svg>
+          </div>
+          <div class="card-meta">
+            <h3 class="card-title">Pocket (In Progress)</h3>
+            <div class="card-tags">
+              <span class="tag">Voice</span>
+              <span class="tag">Productivity</span>
+              <span class="tag">Consumption</span>
+            </div>
+          </div>
+        </div>
+        <div class="card-index">02</div>
+        <a class="card-link" href="#" aria-label="View Pocket project"></a>
+      </article>
+
+      <!-- SellMoreTrips -->
+      <article class="media-card" data-index="2">
+        <div class="card-visual card-visual--3">
+          <div class="card-img" style="background-image: url('./assets/img/posterSMT.png')"></div>
+        </div>
+        <div class="card-body">
+          <div class="card-play" aria-hidden="true">
+            <svg viewBox="0 0 40 40" width="40" height="40" fill="none">
+              <circle cx="20" cy="20" r="19" stroke="currentColor" stroke-width="1.5"/>
+              <polygon points="16,13 30,20 16,27" fill="currentColor"/>
+            </svg>
+          </div>
+          <div class="card-meta">
+            <h3 class="card-title">SellMoreTrips</h3>
+            <div class="card-tags">
+              <span class="tag">AI · LLM</span>
+              <span class="tag">Fullstack</span>
+              <span class="tag">Travel</span>
+            </div>
+          </div>
+        </div>
+        <div class="card-index">03</div>
+        <a class="card-link" href="https://sellmoretrips.com/" target="_blank" rel="noopener" aria-label="View SellMoreTrips"></a>
+      </article>
+
+      <!-- ElderLink -->
+      <article class="media-card" data-index="3">
+        <div class="card-visual card-visual--4">
+          <div class="card-img" style="background-image: url('./assets/img/elderlink.png')"></div>
+        </div>
+        <div class="card-body">
+          <div class="card-play" aria-hidden="true">
+            <svg viewBox="0 0 40 40" width="40" height="40" fill="none">
+              <circle cx="20" cy="20" r="19" stroke="currentColor" stroke-width="1.5"/>
+              <polygon points="16,13 30,20 16,27" fill="currentColor"/>
+            </svg>
+          </div>
+          <div class="card-meta">
+            <h3 class="card-title">ElderLink</h3>
+            <div class="card-tags">
+              <span class="tag">AI · LLM</span>
+              <span class="tag">Voice</span>
+              <span class="tag">UAO</span>
+            </div>
+          </div>
+        </div>
+        <div class="card-index">04</div>
+        <a class="card-link" href="https://www.uao.edu.co/ingenieria/conoce-a-elderlink/" target="_blank" rel="noopener" aria-label="View ElderLink"></a>
+      </article>
+
+      <!-- Zen Pomodoro -->
+      <article class="media-card" data-index="4">
+        <div class="card-visual card-visual--2">
+          <div class="card-img" style="background-image: url('./assets/img/zenpomodoro.png'), linear-gradient(135deg, #2d1f3d 0%, #1a1a2e 100%);"></div>
+        </div>
+        <div class="card-body">
+          <div class="card-play" aria-hidden="true">
+            <svg viewBox="0 0 40 40" width="40" height="40" fill="none">
+              <circle cx="20" cy="20" r="19" stroke="currentColor" stroke-width="1.5"/>
+              <polygon points="16,13 30,20 16,27" fill="currentColor"/>
+            </svg>
+          </div>
+          <div class="card-meta">
+            <h3 class="card-title">Zen Pomodoro (In Progress)</h3>
+            <div class="card-tags">
+              <span class="tag">Productivity</span>
+              <span class="tag">Web App</span>
+              <span class="tag">Planner</span>
+            </div>
+          </div>
+        </div>
+        <div class="card-index">05</div>
+        <a class="card-link" href="https://zenpomodoro.pages.dev/" target="_blank" rel="noopener" aria-label="View Zen Pomodoro"></a>
+      </article>
+
+      <!-- Media Collab -->
+      <article class="media-card" data-index="5">
+        <div class="card-visual card-visual--3">
+          <div class="card-img" style="background-image: url('./assets/img/mediacollab.png'), linear-gradient(135deg, #0f3460 0%, #16213e 100%);"></div>
+        </div>
+        <div class="card-body">
+          <div class="card-play" aria-hidden="true">
+            <svg viewBox="0 0 40 40" width="40" height="40" fill="none">
+              <circle cx="20" cy="20" r="19" stroke="currentColor" stroke-width="1.5"/>
+              <polygon points="16,13 30,20 16,27" fill="currentColor"/>
+            </svg>
+          </div>
+          <div class="card-meta">
+            <h3 class="card-title">Media Collab</h3>
+            <div class="card-tags">
+              <span class="tag">Founder</span>
+              <span class="tag">Student Group</span>
+              <span class="tag">Innovation</span>
+            </div>
+          </div>
+        </div>
+        <div class="card-index">06</div>
+        <a class="card-link" href="https://mediacollab.pages.dev/" target="_blank" rel="noopener" aria-label="View Media Collab"></a>
+      </article>
+
+      <!-- Crossing Biomes -->
+      <article class="media-card" data-index="6">
+        <div class="card-visual card-visual--2">
+          <div class="card-img" style="background-image: url('./assets/img/CB_Proyect.jpg')"></div>
+        </div>
+        <div class="card-body">
+          <div class="card-play" aria-hidden="true">
+            <svg viewBox="0 0 40 40" width="40" height="40" fill="none">
+              <circle cx="20" cy="20" r="19" stroke="currentColor" stroke-width="1.5"/>
+              <polygon points="16,13 30,20 16,27" fill="currentColor"/>
+            </svg>
+          </div>
+          <div class="card-meta">
+            <h3 class="card-title">Crossing Biomes</h3>
+            <div class="card-tags">
+              <span class="tag">Game Dev</span>
+              <span class="tag">Unity 3D</span>
+              <span class="tag">Huawei</span>
+            </div>
+          </div>
+        </div>
+        <div class="card-index">07</div>
+        <a class="card-link" href="https://appgallery.huawei.com/#/app/C102501697" target="_blank" rel="noopener" aria-label="View Crossing Biomes"></a>
+      </article>
+
+      <!-- The Adventure of Creation -->
+      <article class="media-card" data-index="7">
+        <div class="card-visual card-visual--5">
+          <div class="card-img" style="background-image: url('./assets/img/la-aventura-de-la-creacion.jpg')"></div>
+        </div>
+        <div class="card-body">
+          <div class="card-play" aria-hidden="true">
+            <svg viewBox="0 0 40 40" width="40" height="40" fill="none">
+              <circle cx="20" cy="20" r="19" stroke="currentColor" stroke-width="1.5"/>
+              <polygon points="16,13 30,20 16,27" fill="currentColor"/>
+            </svg>
+          </div>
+          <div class="card-meta">
+            <h3 class="card-title">The Adventure of Creation</h3>
+            <div class="card-tags">
+              <span class="tag">Game Dev</span>
+              <span class="tag">Educational</span>
+              <span class="tag">Game Jam</span>
+            </div>
+          </div>
+        </div>
+        <div class="card-index">08</div>
+        <a class="card-link" href="https://gregoryinnovo.itch.io/la-aventura-de-la-creacin" target="_blank" rel="noopener" aria-label="View The Adventure of Creation"></a>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ── DISCIPLINES ─────────────────────────────────────────────── -->
+  <section class="section disciplines-section" id="disciplines">
+    <div class="disciplines-label">DISCIPLINES &amp; TECH</div>
+    <div class="disciplines-marquee" id="disciplinesMarquee" aria-label="Disciplines list">
+      <div class="disciplines-track" aria-hidden="true">
+        <div class="discipline-pill pill--1">AI Engineering</div>
+        <div class="discipline-pill pill--2">LLM Agents</div>
+        <div class="discipline-pill pill--3">MCP Workflows</div>
+        <div class="discipline-pill pill--4">Fullstack Dev</div>
+        <div class="discipline-pill pill--1">MERN Stack</div>
+        <div class="discipline-pill pill--2">React.js</div>
+        <div class="discipline-pill pill--3">Node.js</div>
+        <div class="discipline-pill pill--4">Unity 3D</div>
+        <div class="discipline-pill pill--1">Game Dev</div>
+        <div class="discipline-pill pill--2">Mobile First</div>
+        <div class="discipline-pill pill--3">Creative Coding</div>
+        <div class="discipline-pill pill--4">Entrepreneurship</div>
+      </div>
+      <div class="disciplines-track" aria-hidden="true">
+        <div class="discipline-pill pill--1">AI Engineering</div>
+        <div class="discipline-pill pill--2">LLM Agents</div>
+        <div class="discipline-pill pill--3">MCP Workflows</div>
+        <div class="discipline-pill pill--4">Fullstack Dev</div>
+        <div class="discipline-pill pill--1">MERN Stack</div>
+        <div class="discipline-pill pill--2">React.js</div>
+        <div class="discipline-pill pill--3">Node.js</div>
+        <div class="discipline-pill pill--4">Unity 3D</div>
+        <div class="discipline-pill pill--1">Game Dev</div>
+        <div class="discipline-pill pill--2">Mobile First</div>
+        <div class="discipline-pill pill--3">Creative Coding</div>
+        <div class="discipline-pill pill--4">Entrepreneurship</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── WAVEFORM ───────────────────────────────────────────────── -->
+  <section class="section waveform-section" id="waveform">
+    <div class="waveform-header">
+      <span class="waveform-badge">Creative Signal</span>
+      <span class="waveform-sub">Always Building</span>
+    </div>
+    <canvas class="waveform-canvas" id="waveformCanvas"></canvas>
+    <div class="waveform-footer">
+      <span class="wf-label wf-label--1">AI · LLM</span>
+      <span class="wf-label wf-label--2">FULLSTACK</span>
+      <span class="wf-label wf-label--3">GAME DEV</span>
+    </div>
+  </section>
+
+  <!-- ── ACHIEVEMENTS ───────────────────────────────────────────── -->
+  <section class="section achievements-section" id="achievements">
+    <div class="section-header">
+      <h2 class="section-title">ACHIEVEMENTS</h2>
+    </div>
+    <div class="achievements-grid">
+
+      <a class="achievement-item" href="https://www.youtube.com/watch?v=3Z6SP9oEkMU&t=4335s" target="_blank" rel="noopener">
+        <div class="achievement-accent achievement-accent--3"></div>
+        <div class="achievement-body">
+          <span class="achievement-year">2024</span>
+          <h3 class="achievement-title">Top 10 National</h3>
+          <p class="achievement-sub">Pacific Datathon — Biodiversity Challenge</p>
+          <span class="achievement-tag">Hyperion Team</span>
+        </div>
+        <div class="achievement-arrow">→</div>
+      </a>
+
+      <a class="achievement-item" href="https://www.linkedin.com/posts/damddev_huaweicloud-hdc2023-entrepreneurship-activity-7140202292753903616-4AR2" target="_blank" rel="noopener">
+        <div class="achievement-accent achievement-accent--1"></div>
+        <div class="achievement-body">
+          <span class="achievement-year">2023</span>
+          <h3 class="achievement-title">Grand Prize — $10,000 USD</h3>
+          <p class="achievement-sub">Huawei Cloud Developer Competition LATAM · Lima, Peru</p>
+          <span class="achievement-tag">Foodhy · MEDIA COLLAB</span>
+        </div>
+        <div class="achievement-arrow">→</div>
+      </a>
+
+      <a class="achievement-item" href="https://www.youtube.com/watch?v=tFQBTVOkrtk" target="_blank" rel="noopener">
+        <div class="achievement-accent achievement-accent--2"></div>
+        <div class="achievement-body">
+          <span class="achievement-year">2022</span>
+          <h3 class="achievement-title">1st Place</h3>
+          <p class="achievement-sub">NTT Data Innovation Summit Hackathon</p>
+          <span class="achievement-tag">MEDIA COLLAB</span>
+        </div>
+        <div class="achievement-arrow">→</div>
+      </a>
+
+      <a class="achievement-item" href="https://dev.to/devteam/refine-dev-hackathon-winners-announced-237g" target="_blank" rel="noopener">
+        <div class="achievement-accent achievement-accent--3"></div>
+        <div class="achievement-body">
+          <span class="achievement-year">2023</span>
+          <h3 class="achievement-title">Top 10 Runners-Up</h3>
+          <p class="achievement-sub">Refine Dev Hackathon — Keronote UI</p>
+          <span class="achievement-tag">MEDIA COLLAB</span>
+        </div>
+        <div class="achievement-arrow">→</div>
+      </a>
+
+      <a class="achievement-item" href="https://github.com/alejo02336/TomaNota" target="_blank" rel="noopener">
+        <div class="achievement-accent achievement-accent--4"></div>
+        <div class="achievement-body">
+          <span class="achievement-year">2021</span>
+          <h3 class="achievement-title">Top 10 Projects</h3>
+          <p class="achievement-sub">MinTic Hackathon — TomaNota</p>
+          <span class="achievement-tag">UI/UX · Fullstack</span>
+        </div>
+        <div class="achievement-arrow">→</div>
+      </a>
+
+      <a class="achievement-item" href="https://www.uao.edu.co/ingenieria/la-aventura-de-la-creacion-recibe-mencion-de-honor-en-el-game-jam-lab-2020/" target="_blank" rel="noopener">
+        <div class="achievement-accent achievement-accent--1"></div>
+        <div class="achievement-body">
+          <span class="achievement-year">2020</span>
+          <h3 class="achievement-title">Mention of Honor</h3>
+          <p class="achievement-sub">Game Jam Lab 2020 — Best Educational Game</p>
+          <span class="achievement-tag">The Adventure of Creation</span>
+        </div>
+        <div class="achievement-arrow">→</div>
+      </a>
+
+      <a class="achievement-item" href="https://appgallery.huawei.com/#/app/C102501697" target="_blank" rel="noopener">
+        <div class="achievement-accent achievement-accent--2"></div>
+        <div class="achievement-body">
+          <span class="achievement-year">2020</span>
+          <h3 class="achievement-title">Finalist</h3>
+          <p class="achievement-sub">Huawei Developer Challenge — Crossing Biomes</p>
+          <span class="achievement-tag">GearSoul Team</span>
+        </div>
+        <div class="achievement-arrow">→</div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- ── CONTACT ───────────────────────────────────────────────── -->
+  <section class="section contact-section" id="contact">
+    <div class="contact-inner">
+      <h2 class="contact-heading">COLLABORATE?</h2>
+      <p class="contact-sub">Open to AI projects, hackathons, freelance &amp; full-time roles</p>
+      <div class="contact-links">
+        <a class="contact-btn contact-btn--pink" href="mailto:gregson.murcia.c@gmail.com">
+          gregson.murcia.c@gmail.com
+        </a>
+        <a class="contact-btn contact-btn--cyan" href="https://www.linkedin.com/in/gregson-murcia-castro-b527a31a6/" target="_blank" rel="noopener">
+          LinkedIn
+        </a>
+        <a class="contact-btn contact-btn--orange" href="https://github.com/GregoryInnovo" target="_blank" rel="noopener">
+          GitHub
+        </a>
+      </div>
+    </div>
+    <div class="contact-bg-text" aria-hidden="true">LET'S BUILD</div>
+  </section>
+
+  <!-- ── SCRIPTS ────────────────────────────────────────────────── -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="./main.js"></script>
+</body>
 </html>
