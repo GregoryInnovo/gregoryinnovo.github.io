@@ -17,6 +17,18 @@ function prefersReducedMotion() {
 /* ── Register GSAP plugins ─────────────────────────────────────── */
 if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger);
+
+  // Recalculate ScrollTrigger positions after images/assets load (fixes content "not loading" below)
+  window.addEventListener('load', () => {
+    ScrollTrigger.refresh();
+  });
+
+  // Refresh on resize so triggers stay correct
+  let resizeTid;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTid);
+    resizeTid = setTimeout(() => ScrollTrigger.refresh(), 150);
+  });
 }
 
 /* ══════════════════════════════════════════════════════════════════
@@ -244,16 +256,258 @@ if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
 })();
 
 /* ══════════════════════════════════════════════════════════════════
-   GALLERY — LAYOUT TOGGLE (Grid ↔ List)
+   PROJECT DETAIL DATA (for View Transition detail view)
+   ══════════════════════════════════════════════════════════════════ */
+const PROJECTS = [
+  {
+    title: 'Foodhy',
+    description: 'AI-powered food suggestions app. Won $10K Grand Prize at Huawei Cloud Developer Competition LATAM.',
+    tags: ['AI · LLM', 'Mobile', 'Startup'],
+    projectUrl: 'https://foodhy.com.co/',
+    cardImage: './assets/img/Foodhy.PNG',
+    summary: 'Foodhy is a platform that provides accessible nutritional information for everyone, fostering a culture of responsible and mindful consumption. Supported by artificial intelligence and professional guidance, it allows users to scan barcode products to get nutritional info and AI-powered suggestions. Built by MediaCollab, it won the Grand Prize ($10K USD) at the Huawei Cloud Developer Competition 2023 Latin America in Lima, Peru, competing against 7 teams from Colombia, Mexico, and Peru.',
+    images: ['./assets/img/foodhy_team.jpeg'],
+    links: [
+      { label: 'Watch pitch', url: 'https://www.youtube.com/watch?v=QsSwR6EaTkU' },
+      { label: 'LinkedIn post', url: 'https://www.linkedin.com/posts/damddev_huaweicloud-hdc2023-entrepreneurship-activity-7140202292753903616-4AR2?utm_source=share&utm_medium=member_desktop&rcm=ACoAADAruK4BlaZjQIm1f5Mtg79ZeaNr3GOdods' },
+    ],
+  },
+  {
+    title: 'Pocket (In Progress)',
+    description: 'Voice-controlled productivity app for content consumption and note-taking.',
+    tags: ['Voice', 'Productivity', 'Consumption'],
+    projectUrl: '#',
+    cardImage: "url('./assets/img/pocket.png'), linear-gradient(135deg, #1e3a5f 0%, #0d1b2a 100%)",
+    summary: 'Pocket is a personal finance and content tracker built around one idea: everything you consume, earn, and spend should be effortless to log. Using voice commands, you save articles, podcasts, videos, purchases, and income entries without breaking your flow — you hear something, you say it, Pocket captures it. It then organizes your content library and financial activity in one place, giving you clarity on where your time and money actually go. Currently in active development, exploring LLM integrations to auto-summarize saved content and generate spending insights.',
+    images: [],
+    links: [],
+  },
+  {
+    title: 'SellMoreTrips',
+    description: 'AI platform for travel agencies to increase sales through personalized recommendations.',
+    tags: ['AI · LLM', 'Fullstack', 'Travel'],
+    projectUrl: 'https://sellmoretrips.com/',
+    cardImage: './assets/img/posterSMT.png',
+    summary: 'SellMoreTrips is a B2B AI platform built to help travel agencies close more deals. It analyzes each client\'s profile and travel history to automatically generate personalized destination recommendations and commercial proposals — cutting hours of manual work into seconds. Agents get a dashboard with client insights, automated quote generation, and a real-time LLM assistant that answers traveler questions 24/7. Built on the MERN stack with AI automation at its core, replacing repetitive agency workflows with intelligent, scalable processes.',
+    images: [],
+    links: [],
+  },
+  {
+    title: 'ElderLink',
+    description: 'Voice assistant for seniors. Natural language to control apps, send messages, and place orders.',
+    tags: ['AI · LLM', 'Voice', 'UAO'],
+    projectUrl: 'https://www.uao.edu.co/ingenieria/conoce-a-elderlink/',
+    cardImage: './assets/img/elderlink.png',
+    summary: 'ElderLink is a voice assistant designed for seniors with little to no tech experience. Through natural conversation — no buttons, no menus — elders can ask for information on any topic, request an Uber ride via deep links, send WhatsApp messages, play music, or call a family member. The assistant also automates reminders for medication, alarms, and appointments, acting as a daily companion that bridges the digital gap. The goal: make technology invisible so elders can focus on living, not on learning apps.',
+    images: [],
+    links: [],
+  },
+  {
+    title: 'Zen Pomodoro (In Progress)',
+    description: 'Minimalist Pomodoro timer with task planner and focus tracking.',
+    tags: ['Productivity', 'Web App', 'Planner'],
+    projectUrl: 'https://zenpomodoro.pages.dev/',
+    cardImage: "url('./assets/img/zenpomodoro.png'), linear-gradient(135deg, #2d1f3d 0%, #1a1a2e 100%)",
+    summary: 'Zen Pomodoro is a minimalist focus timer built around the Pomodoro technique, designed for people who want deep work without noise. It includes a daily task planner, session stats, and a carefully crafted dark UI. The philosophy is "enough and nothing more" — no aggressive notifications, no forced gamification, no clutter. A progressive web app that works offline and installs on any device, keeping you focused on what matters.',
+    images: [],
+    links: [],
+  },
+  {
+    title: 'Media Collab',
+    description: 'UAO student innovation group I founded. Hackathons, workshops, and product development.',
+    tags: ['Founder', 'Student Group', 'Innovation'],
+    projectUrl: 'https://mediacollab.pages.dev/',
+    cardImage: "url('./assets/img/mediacollab.png'), linear-gradient(135deg, #ffffff 0%, #e8e8e8 100%)",
+    summary: 'Media Collab is the student innovation group I founded at Universidad Autónoma de Occidente. Built around one mission: ship real products and compete at the highest level. The group participated in 13+ hackathons, winning the $10K Grand Prize at Huawei Cloud Developer Competition LATAM 2023, 1st place at NTT Data Innovation Summit, and multiple national Top 10 finishes. Beyond competing, Media Collab ran workshops on development, design, and entrepreneurship for the university community, becoming a launchpad for student builders.',
+    images: [],
+    links: [],
+  },
+  {
+    title: 'Crossing Biomes',
+    description: '3D exploration game built with Unity. Finalist at Huawei Developer Challenge, published on AppGallery.',
+    tags: ['Game Dev', 'Unity 3D', 'Huawei'],
+    projectUrl: 'https://appgallery.huawei.com/#/app/C102501697',
+    cardImage: './assets/img/CB_Proyect.jpg',
+    summary: 'Crossing Biomes is a 3D exploration game built in Unity for the Huawei Developer Challenge. Players travel through diverse natural biomes — forest, desert, tundra — with platforming and collection mechanics, all optimized for Android using Huawei Mobile Services (HMS). The GearSoul team reached the finalist round and the game was officially published on Huawei AppGallery. It was my first experience shipping a game to a real store and navigating the full pipeline from prototype to production build.',
+    images: [],
+    links: [],
+  },
+  {
+    title: 'The Adventure of Creation',
+    description: 'Educational game about creativity. Mention of Honor at Game Jam Lab 2020 — Best Educational Game.',
+    tags: ['Game Dev', 'Educational', 'Game Jam'],
+    projectUrl: 'https://gregoryinnovo.itch.io/la-aventura-de-la-creacin',
+    cardImage: './assets/img/la-aventura-de-la-creacion.jpg',
+    summary: 'This video game is a metaphor for the mental process that an artist undergoes while creating a painting. The main character explores both abstract thoughts and logical reasoning, drawing and transforming the environment to complete a maze of ideas and break through the walls of creative block. The game is inspired by the works of León Ferrari and Maria Theresa Negreiros.',
+    images: [],
+    links: [],
+  },
+];
+
+/* ══════════════════════════════════════════════════════════════════
+   GALLERY — LAYOUT TOGGLE (Grid ↔ List) + VIEW TRANSITIONS
    ══════════════════════════════════════════════════════════════════ */
 (function initGallery() {
-  const gallery   = $('#mediaGallery');
-  const toggleBtn = $('#layout-toggle');
-  if (!gallery || !toggleBtn) return;
+  const gallery    = $('#mediaGallery');
+  const toggleBtn  = $('#layout-toggle');
+  const gridWrap   = $('#workGridWrap');
+  const detailView  = $('#workDetailView');
+  const detailBack  = $('#workDetailBack');
+  const cardLinks   = $$('.card-link[data-project-index]');
+
+  if (!gallery || !toggleBtn || !gridWrap || !detailView) return;
 
   toggleBtn.addEventListener('click', () => {
     gallery.classList.toggle('list-view');
     toggleBtn.classList.toggle('is-list');
+  });
+
+  function supportsViewTransitions() {
+    return 'startViewTransition' in document;
+  }
+
+  function setViewTransitionNames(index, cardOnly) {
+    const imgName  = `work-card-image-${index}`;
+    const titleName = `work-card-title-${index}`;
+    $$('.work-card-img').forEach((el) => {
+      el.style.viewTransitionName = el.dataset.id === String(index) ? imgName : 'none';
+    });
+    $$('.work-card-title').forEach((el) => {
+      el.style.viewTransitionName = el.dataset.id === String(index) ? titleName : 'none';
+    });
+    if (!cardOnly && detailView) {
+      const detailImg   = $('#workDetailImage');
+      const detailTitle = $('#workDetailTitle');
+      if (detailImg) detailImg.style.viewTransitionName = imgName;
+      if (detailTitle) detailTitle.style.viewTransitionName = titleName;
+    }
+  }
+
+  function clearViewTransitionNames() {
+    $$('.work-card-img, .work-card-title').forEach((el) => {
+      el.style.viewTransitionName = 'none';
+    });
+    const detailImg   = $('#workDetailImage');
+    const detailTitle = $('#workDetailTitle');
+    if (detailImg) detailImg.style.viewTransitionName = 'none';
+    if (detailTitle) detailTitle.style.viewTransitionName = 'none';
+  }
+
+  function openDetail(index) {
+    const proj = PROJECTS[index];
+    if (!proj) return;
+
+    setViewTransitionNames(index, true);
+
+    const doUpdate = () => {
+      gridWrap.hidden = true;
+      gridWrap.setAttribute('aria-hidden', 'true');
+      detailView.hidden = false;
+      detailView.setAttribute('aria-hidden', 'false');
+      savedScrollY = window.scrollY;
+      document.body.style.overflow = 'hidden';
+      document.body.style.top = `-${savedScrollY}px`;
+
+      const detailImg     = $('#workDetailImage');
+      const detailTitle   = $('#workDetailTitle');
+      const detailDesc    = $('#workDetailDesc');
+      const detailTags    = $('#workDetailTags');
+      const detailSummary = $('#workDetailSummary');
+      const detailGallery = $('#workDetailGallery');
+      const detailLinks   = $('#workDetailLinks');
+      const projectLink  = $('#workDetailProjectLink');
+
+      if (detailImg) {
+        const bg = proj.cardImage.startsWith('url(') ? proj.cardImage : `url(${proj.cardImage})`;
+        detailImg.style.backgroundImage = bg;
+        detailImg.style.viewTransitionName = `work-card-image-${index}`;
+      }
+      if (detailTitle) {
+        detailTitle.textContent = proj.title;
+        detailTitle.style.viewTransitionName = `work-card-title-${index}`;
+      }
+      if (detailDesc) detailDesc.textContent = proj.description;
+      if (detailTags) {
+        detailTags.innerHTML = proj.tags.map((t) => `<span class="tag">${t}</span>`).join('');
+      }
+      if (detailSummary) {
+        detailSummary.innerHTML = proj.summary ? `<p>${proj.summary}</p>` : '';
+        detailSummary.hidden = !proj.summary;
+      }
+      if (detailGallery) {
+        detailGallery.innerHTML = proj.images
+          .map((src) => `<img src="${src}" alt="" loading="lazy" class="work-detail-gallery-img" />`)
+          .join('');
+        detailGallery.hidden = !proj.images.length;
+      }
+      if (detailLinks) {
+        detailLinks.innerHTML = proj.links
+          .map((l) => `<a href="${l.url}" target="_blank" rel="noopener" class="work-detail-link">${l.label}</a>`)
+          .join('');
+        detailLinks.hidden = !proj.links.length;
+      }
+      if (projectLink) {
+        projectLink.href = proj.projectUrl;
+        projectLink.hidden = !proj.projectUrl || proj.projectUrl === '#';
+      }
+    };
+
+    if (supportsViewTransitions()) {
+      document.startViewTransition(doUpdate);
+    } else {
+      doUpdate();
+    }
+  }
+
+  function closeDetail(index) {
+    setViewTransitionNames(index, false);
+
+    const doUpdate = () => {
+      detailView.hidden = true;
+      detailView.setAttribute('aria-hidden', 'true');
+      gridWrap.hidden = false;
+      gridWrap.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = '';
+      document.body.style.top = '';
+      window.scrollTo({ top: savedScrollY, behavior: 'instant' });
+      clearViewTransitionNames();
+    };
+
+    if (supportsViewTransitions()) {
+      document.startViewTransition(doUpdate);
+    } else {
+      doUpdate();
+    }
+  }
+
+  let currentDetailIndex = -1;
+  let savedScrollY = 0;
+
+  cardLinks.forEach((link) => {
+    link.addEventListener('click', (e) => {
+      const idx = parseInt(link.getAttribute('data-project-index'), 10);
+      if (idx < 0 || idx >= PROJECTS.length) return;
+      e.preventDefault();
+      e.stopPropagation();
+      currentDetailIndex = idx;
+      openDetail(idx);
+    });
+  });
+
+  if (detailBack) {
+    detailBack.addEventListener('click', () => {
+      if (currentDetailIndex >= 0) {
+        closeDetail(currentDetailIndex);
+        currentDetailIndex = -1;
+      }
+    });
+  }
+
+  detailView.addEventListener('click', (e) => {
+    if (!e.target.closest('.work-detail-layout') && currentDetailIndex >= 0) {
+      closeDetail(currentDetailIndex);
+      currentDetailIndex = -1;
+    }
   });
 })();
 
@@ -302,12 +556,11 @@ if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
 
   if (!aboutSection) return;
 
-  const toggleActions = prefersReducedMotion() ? 'play none none none' : 'play reverse play reverse';
   const tl = gsap.timeline({
     scrollTrigger: {
       trigger: aboutSection,
       start: 'top 75%',
-      toggleActions,
+      toggleActions: 'play none none none', /* solo una vez al entrar */
     },
   });
 
@@ -326,7 +579,6 @@ if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
     const suffix = factEl.dataset.suffix || '';
 
     const obj = { val: 0 };
-    const factToggle = prefersReducedMotion() ? 'play none none none' : 'play reverse play reverse';
     gsap.to(obj, {
       val: count,
       duration: d(1.4),
@@ -334,7 +586,7 @@ if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
       scrollTrigger: {
         trigger: factEl,
         start: 'top 88%',
-        toggleActions: factToggle,
+        toggleActions: 'play none none none', /* solo una vez */
       },
       onUpdate: () => {
         numEl.textContent = prefix + Math.round(obj.val) + suffix;
@@ -506,9 +758,7 @@ if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
   const contactSection = $('#contact');
   if (!contactSection) return;
 
-  const contactToggle = prefersReducedMotion() ? 'play none none none' : 'play reverse play reverse';
-
-  /* — Heading: clip-path wipe reveal (repeats on scroll in/out) — */
+  /* — Heading: clip-path wipe reveal (solo una vez) — */
   if (headingEl) {
     headingEl.style.opacity = '1';
     gsap.fromTo(headingEl,
@@ -520,14 +770,13 @@ if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
         scrollTrigger: {
           trigger: contactSection,
           start: 'top 85%',
-          end: 'bottom 15%',
-          toggleActions: contactToggle,
+          toggleActions: 'play none none none',
         },
       }
     );
   }
 
-  /* — Sub: word-by-word reveal (repeats on scroll in/out) — */
+  /* — Sub: word-by-word reveal (solo una vez) — */
   if (subEl) {
     const text = subEl.textContent.trim();
     subEl.textContent = '';
@@ -551,13 +800,12 @@ if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
       scrollTrigger: {
         trigger: contactSection,
         start: 'top 85%',
-        end: 'bottom 15%',
-        toggleActions: contactToggle,
+        toggleActions: 'play none none none',
       },
     });
   }
 
-  /* — Buttons: staggered fade-up (repeats on scroll in/out) — */
+  /* — Buttons: staggered fade-up (solo una vez) — */
   if (linksEl) {
     const btns = $$('.contact-btn', linksEl);
     linksEl.style.opacity = '1';
@@ -571,8 +819,7 @@ if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
       scrollTrigger: {
         trigger: contactSection,
         start: 'top 80%',
-        end: 'bottom 20%',
-        toggleActions: contactToggle,
+        toggleActions: 'play none none none',
       },
     });
   }

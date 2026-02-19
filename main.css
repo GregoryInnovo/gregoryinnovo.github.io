@@ -706,6 +706,223 @@ img { display: block; }
   font-size: clamp(2.5rem, 5vw, 5rem);
 }
 
+/* ── Work Detail View (Fixed overlay — fits viewport, no scroll jump) ── */
+.work-detail-view {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(1rem, 4vw, 3rem);
+  overflow-y: auto;
+  background: rgba(12, 12, 20, 0.92);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  cursor: pointer;
+}
+
+.work-detail-view[hidden] {
+  display: none !important;
+}
+
+.work-detail-layout {
+  display: grid;
+  grid-template-columns: minmax(280px, 42%) 1fr;
+  gap: clamp(1.5rem, 4vw, 3rem);
+  align-items: start;
+  max-width: 1100px;
+  width: 100%;
+  max-height: min(85vh, 680px);
+  margin: auto;
+  position: relative;
+  z-index: 1;
+  cursor: default;
+}
+
+@media (max-width: 900px) {
+  .work-detail-layout {
+    grid-template-columns: 1fr;
+    max-height: none;
+  }
+}
+
+.work-detail-image-area {
+  min-height: 0;
+}
+
+.work-detail-image {
+  aspect-ratio: 4 / 3;
+  max-height: min(42vh, 340px);
+  background-size: cover;
+  background-position: center;
+  border-radius: 2px;
+  border: 1px solid var(--border);
+  filter: brightness(0.85);
+}
+
+.work-detail-content {
+  overflow-y: auto;
+  max-height: min(85vh, 680px);
+  padding-right: 0.5rem;
+}
+
+@media (max-width: 900px) {
+  .work-detail-content {
+    max-height: none;
+  }
+}
+
+.work-detail-back {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  padding: 0.6rem 1.25rem;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s;
+  border-radius: 2px;
+  margin-bottom: 1.5rem;
+}
+
+.work-detail-back:hover,
+.work-detail-back:focus-visible {
+  border-color: var(--accent-3);
+  color: var(--accent-3);
+  outline: none;
+}
+
+.work-detail-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3.5vw, 2.25rem);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  line-height: 1.1;
+  color: var(--text);
+  margin-bottom: 0.6rem;
+}
+
+.work-detail-desc {
+  font-size: clamp(0.85rem, 1.3vw, 0.95rem);
+  color: var(--text-muted);
+  line-height: 1.55;
+  margin-bottom: 1rem;
+}
+
+.work-detail-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1rem;
+}
+
+.work-detail-tags .tag {
+  font-size: 0.65rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding: 0.35em 0.75em;
+  min-height: 28px;
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--muted);
+  color: var(--text-muted);
+  border-radius: 2px;
+}
+
+.work-detail-summary {
+  font-size: clamp(0.85rem, 1.1vw, 0.95rem);
+  color: var(--text-muted);
+  line-height: 1.65;
+  margin-bottom: 1rem;
+}
+
+.work-detail-summary p {
+  margin-bottom: 0.5rem;
+}
+
+.work-detail-summary p:last-child {
+  margin-bottom: 0;
+}
+
+.work-detail-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.work-detail-gallery-img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 2px;
+  border: 1px solid var(--border);
+}
+
+.work-detail-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.work-detail-link {
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent-3);
+  border: 1px solid var(--accent-3);
+  padding: 0.5rem 1rem;
+  border-radius: 2px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.work-detail-link:hover {
+  background: var(--accent-3);
+  color: var(--bg);
+}
+
+.work-detail-project-btn {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-weight: 600;
+  background: var(--accent-3);
+  color: var(--bg);
+  padding: 0.75rem 1.5rem;
+  border-radius: 2px;
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+.work-detail-project-btn:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+
+/* View Transitions API */
+@supports (view-transition-name: none) {
+  ::view-transition-old(root) {
+    animation: view-transition-fade-out 0.25s ease-out;
+  }
+  ::view-transition-new(root) {
+    animation: view-transition-fade-in 0.35s ease-out;
+  }
+}
+
+@keyframes view-transition-fade-out {
+  to { opacity: 0; }
+}
+
+@keyframes view-transition-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
 /* ══════════════════════════════════════════════════════════════
    DISCIPLINES
    ══════════════════════════════════════════════════════════════ */
