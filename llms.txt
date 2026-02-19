@@ -1,0 +1,31 @@
+# Gregory Innovo
+
+> AI Software Engineer & Multimedia Engineer. Building LLM-powered agents, fullstack apps, and games from Cali, Colombia. Currently at Rappi. 13+ hackathons, $10K in prizes. Founder of Media Collab. Open to AI projects, hackathons, freelance & full-time roles.
+
+## Portfolio
+
+- [Home](https://gregoryinnovo.github.io/): Single-page portfolio with About, Work, Contact
+- [About](https://gregoryinnovo.github.io/#about): Multimedia Engineer & Entrepreneur bio
+- [Selected Work](https://gregoryinnovo.github.io/#work): Projects gallery
+- [Contact](https://gregoryinnovo.github.io/#contact): Collaboration & contact links
+
+## Projects
+
+- [Foodhy](https://foodhy.com.co/): AI · LLM · Mobile · Startup
+- [SellMoreTrips](https://sellmoretrips.com/): AI · LLM · Fullstack · Travel
+- [ElderLink](https://www.uao.edu.co/ingenieria/conoce-a-elderlink/): AI · LLM · Voice · UAO
+- [Zen Pomodoro](https://zenpomodoro.pages.dev/): Productivity · Web App · Planner
+- [Media Collab](https://mediacollab.pages.dev/): Founder · Student Group · Innovation
+- [Crossing Biomes](https://appgallery.huawei.com/#/app/C102501697): Game Dev · Unity 3D · Huawei
+- [The Adventure of Creation](https://gregoryinnovo.itch.io/la-aventura-de-la-creacin): Game Dev · Educational · Game Jam
+
+## Contact
+
+- [Email](mailto:gregson.murcia.c@gmail.com): gregson.murcia.c@gmail.com
+- [LinkedIn](https://www.linkedin.com/in/gregson-murcia-castro-b527a31a6/): Professional profile
+- [GitHub](https://github.com/GregoryInnovo): Code & repositories
+- [Instagram](https://www.instagram.com/gregoryinnovo/): @gregoryinnovo
+
+## Disciplines & Tech
+
+AI Engineering, LLM Agents, MCP Workflows, Fullstack Dev, MERN Stack, React.js, Node.js, Unity 3D, Game Dev, Mobile First, Creative Coding, Entrepreneurship

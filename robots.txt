@@ -1,0 +1,7 @@
+# robots.txt - SEO & crawler directives
+# https://gregoryinnovo.github.io
+
+User-agent: *
+Allow: /
+
+Sitemap: https://gregoryinnovo.github.io/sitemap.xml
