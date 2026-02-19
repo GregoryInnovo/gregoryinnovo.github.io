@@ -20,15 +20,39 @@ if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
 }
 
 /* ══════════════════════════════════════════════════════════════════
-   NAV — scroll-activated backdrop
+   NAV — scroll-activated backdrop + active section (scroll-spy)
    ══════════════════════════════════════════════════════════════════ */
 (function initNav() {
   const nav = $('#nav');
+  const navLinks = $$('.nav-link');
+  const sections = ['#hero', '#about', '#work', '#contact'];
+
   if (!nav) return;
+
+  function updateNav() {
+    const y = window.scrollY + 120;
+    let current = '#hero';
+
+    for (let i = sections.length - 1; i >= 0; i--) {
+      const el = $(sections[i]);
+      if (el && el.offsetTop <= y) {
+        current = sections[i];
+        break;
+      }
+    }
+
+    navLinks.forEach((link) => {
+      const href = link.getAttribute('href');
+      link.classList.toggle('active', href === current && href !== '#hero');
+    });
+  }
 
   window.addEventListener('scroll', () => {
     nav.classList.toggle('scrolled', window.scrollY > 60);
+    updateNav();
   }, { passive: true });
+
+  updateNav();
 })();
 
 /* ══════════════════════════════════════════════════════════════════
@@ -263,6 +287,63 @@ if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
 })();
 
 /* ══════════════════════════════════════════════════════════════════
+   ABOUT — scroll reveal + counter animation for facts
+   ══════════════════════════════════════════════════════════════════ */
+(function initAboutAnimations() {
+  if (typeof gsap === 'undefined') return;
+
+  const d = (base) => prefersReducedMotion() ? 0 : base;
+  const aboutSection = $('#about');
+  const eyebrow = $('.about-eyebrow');
+  const title = $('.about-title');
+  const bio = $('.about-bio');
+  const facts = $$('.fact');
+  const social = $('.about-social');
+
+  if (!aboutSection) return;
+
+  const toggleActions = prefersReducedMotion() ? 'play none none none' : 'play reverse play reverse';
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: aboutSection,
+      start: 'top 75%',
+      toggleActions,
+    },
+  });
+
+  if (eyebrow) tl.fromTo(eyebrow, { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: d(0.5), ease: 'power3.out' });
+  if (title) tl.fromTo(title, { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: d(0.6), ease: 'power3.out' }, '-=0.3');
+  if (bio) tl.fromTo(bio, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: d(0.55), ease: 'power3.out' }, '-=0.35');
+  tl.fromTo(facts, { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: d(0.5), stagger: d(0.08), ease: 'power3.out' }, '-=0.4');
+  if (social) tl.fromTo(social, { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: d(0.5), ease: 'power3.out' }, '-=0.3');
+
+  /* Counter animation for facts */
+  facts.forEach((factEl) => {
+    const numEl = factEl.querySelector('.fact-num');
+    if (!numEl) return;
+    const count = parseInt(factEl.dataset.count, 10) || 0;
+    const prefix = factEl.dataset.prefix || '';
+    const suffix = factEl.dataset.suffix || '';
+
+    const obj = { val: 0 };
+    const factToggle = prefersReducedMotion() ? 'play none none none' : 'play reverse play reverse';
+    gsap.to(obj, {
+      val: count,
+      duration: d(1.4),
+      ease: 'power2.out',
+      scrollTrigger: {
+        trigger: factEl,
+        start: 'top 88%',
+        toggleActions: factToggle,
+      },
+      onUpdate: () => {
+        numEl.textContent = prefix + Math.round(obj.val) + suffix;
+      },
+    });
+  });
+})();
+
+/* ══════════════════════════════════════════════════════════════════
    WAVEFORM VISUALIZER CANVAS — with mouse interaction
    ══════════════════════════════════════════════════════════════════ */
 (function initWaveform() {
@@ -374,59 +455,32 @@ if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
 })();
 
 /* ══════════════════════════════════════════════════════════════════
-   ACHIEVEMENTS — HORIZONTAL SCROLL GALLERY
+   ACHIEVEMENTS — VERTICAL GRID WITH SCROLL REVEALS
    ══════════════════════════════════════════════════════════════════ */
 (function initAchievementsGallery() {
-  if (typeof gsap === 'undefined') return;
-
-  const track   = $('#achievements-track');
-  const gallery = $('#achievements-gallery');
-  if (!track || !gallery) return;
-
-  const panels   = gsap.utils.toArray('.achievement-panel');
-  const pbarFill = $('#ach-pbar-fill');
-  const pbar     = $('.achievements-pbar');
-
-  if (prefersReducedMotion()) {
-    track.style.flexWrap = 'wrap';
-    panels.forEach(p => { p.style.width = '100%'; p.style.height = 'auto'; });
+  if (typeof gsap === 'undefined') {
+    $$('.achievement-panel').forEach(el => {
+      el.style.opacity = '1';
+    });
     return;
   }
 
-  function getScrollWidth() {
-    return Math.max(track.scrollWidth - window.innerWidth, 1);
-  }
+  const panels = gsap.utils.toArray('.achievement-panel');
+  const d = (base) => prefersReducedMotion() ? 0 : base;
 
-  const horizontalTween = gsap.to(track, {
-    x: () => -getScrollWidth(),
-    ease: 'none',
-    scrollTrigger: {
-      trigger: gallery,
-      pin: true,
-      scrub: 1,
-      end: () => `+=${getScrollWidth()}`,
-      invalidateOnRefresh: true,
-      onUpdate:    (self) => { if (pbarFill) pbarFill.style.width = `${self.progress * 100}%`; },
-      onEnter:     () => pbar && pbar.classList.add('visible'),
-      onLeave:     () => pbar && pbar.classList.remove('visible'),
-      onEnterBack: () => pbar && pbar.classList.add('visible'),
-      onLeaveBack: () => pbar && pbar.classList.remove('visible'),
-    },
-  });
-
-  panels.forEach((panel) => {
+  panels.forEach((panel, i) => {
     const inner = panel.querySelector('.achievement-panel-inner');
     if (!inner) return;
-    gsap.set(inner, { opacity: 0.3, scale: 0.88 });
-    gsap.to(inner, {
-      opacity: 1, scale: 1,
-      ease: 'power2.out',
+    gsap.set(panel, { opacity: 0, y: 24 });
+    gsap.to(panel, {
+      opacity: 1, y: 0,
+      duration: d(0.6),
+      ease: 'power3.out',
+      delay: i * d(0.06),
       scrollTrigger: {
         trigger: panel,
-        containerAnimation: horizontalTween,
-        start: 'left 80%',
-        end:   'left 30%',
-        scrub: 1,
+        start: 'top 88%',
+        toggleActions: 'play none none none',
       },
     });
   });
@@ -449,7 +503,12 @@ if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
 
   const d = (base) => prefersReducedMotion() ? 0 : base;
 
-  /* — Heading: clip-path wipe reveal (preserves gradient text) — */
+  const contactSection = $('#contact');
+  if (!contactSection) return;
+
+  const contactToggle = prefersReducedMotion() ? 'play none none none' : 'play reverse play reverse';
+
+  /* — Heading: clip-path wipe reveal (repeats on scroll in/out) — */
   if (headingEl) {
     headingEl.style.opacity = '1';
     gsap.fromTo(headingEl,
@@ -459,15 +518,16 @@ if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
         duration: d(1.0),
         ease: 'power3.inOut',
         scrollTrigger: {
-          trigger: headingEl,
+          trigger: contactSection,
           start: 'top 85%',
-          toggleActions: 'play none none none',
+          end: 'bottom 15%',
+          toggleActions: contactToggle,
         },
       }
     );
   }
 
-  /* — Sub: word-by-word reveal — */
+  /* — Sub: word-by-word reveal (repeats on scroll in/out) — */
   if (subEl) {
     const text = subEl.textContent.trim();
     subEl.textContent = '';
@@ -489,14 +549,15 @@ if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
       stagger: d(0.05),
       delay: d(0.15),
       scrollTrigger: {
-        trigger: subEl,
-        start: 'top 88%',
-        toggleActions: 'play none none none',
+        trigger: contactSection,
+        start: 'top 85%',
+        end: 'bottom 15%',
+        toggleActions: contactToggle,
       },
     });
   }
 
-  /* — Buttons: staggered fade-up — */
+  /* — Buttons: staggered fade-up (repeats on scroll in/out) — */
   if (linksEl) {
     const btns = $$('.contact-btn', linksEl);
     linksEl.style.opacity = '1';
@@ -508,9 +569,10 @@ if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
       stagger: d(0.08),
       delay: d(0.3),
       scrollTrigger: {
-        trigger: linksEl,
-        start: 'top 90%',
-        toggleActions: 'play none none none',
+        trigger: contactSection,
+        start: 'top 80%',
+        end: 'bottom 20%',
+        toggleActions: contactToggle,
       },
     });
   }

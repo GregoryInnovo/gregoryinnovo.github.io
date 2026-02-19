@@ -13,6 +13,9 @@
 </head>
 <body>
 
+  <!-- Skip to main content (accessibility) -->
+  <a href="#about" class="skip-link">Skip to main content</a>
+
   <!-- ── NAV ──────────────────────────────────────────────────── -->
   <nav class="nav" id="nav">
     <a href="/" class="nav-logo">Gregory Innovo</a>
@@ -60,32 +63,32 @@
           With a background in multimedia engineering, my interest in digital development has been shaped by a multidisciplinary perspective. Entrepreneur involved in two business incubators (Santander Explorer &amp; CAMPUS NOVA). Founder of <a href="https://mediacollab.pages.dev/" target="_blank" rel="noopener" class="about-bio-link">Media Collab</a>, the UAO student innovation group. Self-taught — never ceasing to learn. 13+ hackathons, $10K in prizes, and currently building AI-powered products with LLM agents &amp; MCP workflows at Rappi.
         </p>
         <div class="about-facts">
-          <div class="fact">
-            <span class="fact-num">13+</span>
+          <div class="fact" data-count="13" data-suffix="+">
+            <span class="fact-num">0</span>
             <span class="fact-label">Hackathons</span>
           </div>
-          <div class="fact">
-            <span class="fact-num">$10K</span>
+          <div class="fact" data-count="10" data-prefix="$" data-suffix="K">
+            <span class="fact-num">0</span>
             <span class="fact-label">Prize Won</span>
           </div>
-          <div class="fact">
-            <span class="fact-num">2</span>
+          <div class="fact" data-count="2">
+            <span class="fact-num">0</span>
             <span class="fact-label">Startups</span>
           </div>
-          <div class="fact">
-            <span class="fact-num">6+</span>
+          <div class="fact" data-count="6" data-suffix="+">
+            <span class="fact-num">0</span>
             <span class="fact-label">Years Dev</span>
           </div>
         </div>
         <div class="about-social">
-          <a class="social-link" href="https://www.linkedin.com/in/gregson-murcia-castro-b527a31a6/" target="_blank" rel="noopener">
-            <img src="./assets/icons/LinkedIn.svg" alt="" /> LinkedIn
+          <a class="social-link social-link--linkedin" href="https://www.linkedin.com/in/gregson-murcia-castro-b527a31a6/" target="_blank" rel="noopener" aria-label="Gregory Innovo on LinkedIn">
+            <img src="./assets/icons/LinkedIn.svg" alt="" aria-hidden="true" class="social-icon" /> LinkedIn
           </a>
-          <a class="social-link" href="https://github.com/GregoryInnovo" target="_blank" rel="noopener">
-            <img src="./assets/icons/Github.svg" alt="" /> GitHub
+          <a class="social-link social-link--github" href="https://github.com/GregoryInnovo" target="_blank" rel="noopener" aria-label="Gregory Innovo on GitHub">
+            <img src="./assets/icons/Github.svg" alt="" aria-hidden="true" class="social-icon" /> GitHub
           </a>
-          <a class="social-link" href="https://www.instagram.com/gregoryinnovo/" target="_blank" rel="noopener">
-            <img src="./assets/icons/Instagram.svg" alt="" /> Instagram
+          <a class="social-link social-link--instagram" href="https://www.instagram.com/gregoryinnovo/" target="_blank" rel="noopener" aria-label="Gregory Innovo on Instagram">
+            <img src="./assets/icons/Instagram.svg" alt="" aria-hidden="true" class="social-icon" /> Instagram
           </a>
         </div>
       </div>
@@ -111,14 +114,9 @@
           <div class="card-img" style="background-image: url('./assets/img/Foodhy.PNG')"></div>
         </div>
         <div class="card-body">
-          <div class="card-play" aria-hidden="true">
-            <svg viewBox="0 0 40 40" width="40" height="40" fill="none">
-              <circle cx="20" cy="20" r="19" stroke="currentColor" stroke-width="1.5"/>
-              <polygon points="16,13 30,20 16,27" fill="currentColor"/>
-            </svg>
-          </div>
           <div class="card-meta">
             <h3 class="card-title">Foodhy</h3>
+            <p class="card-description">AI-powered food suggestions app. Won $10K Grand Prize at Huawei Cloud Developer Competition LATAM.</p>
             <div class="card-tags">
               <span class="tag">AI · LLM</span>
               <span class="tag">Mobile</span>
@@ -136,14 +134,9 @@
           <div class="card-img" style="background-image: url('./assets/img/pocket.png'), linear-gradient(135deg, #1e3a5f 0%, #0d1b2a 100%);"></div>
         </div>
         <div class="card-body">
-          <div class="card-play" aria-hidden="true">
-            <svg viewBox="0 0 40 40" width="40" height="40" fill="none">
-              <circle cx="20" cy="20" r="19" stroke="currentColor" stroke-width="1.5"/>
-              <polygon points="16,13 30,20 16,27" fill="currentColor"/>
-            </svg>
-          </div>
           <div class="card-meta">
             <h3 class="card-title">Pocket (In Progress)</h3>
+            <p class="card-description">Voice-controlled productivity app for content consumption and note-taking.</p>
             <div class="card-tags">
               <span class="tag">Voice</span>
               <span class="tag">Productivity</span>
@@ -161,14 +154,9 @@
           <div class="card-img" style="background-image: url('./assets/img/posterSMT.png')"></div>
         </div>
         <div class="card-body">
-          <div class="card-play" aria-hidden="true">
-            <svg viewBox="0 0 40 40" width="40" height="40" fill="none">
-              <circle cx="20" cy="20" r="19" stroke="currentColor" stroke-width="1.5"/>
-              <polygon points="16,13 30,20 16,27" fill="currentColor"/>
-            </svg>
-          </div>
           <div class="card-meta">
             <h3 class="card-title">SellMoreTrips</h3>
+            <p class="card-description">AI platform for travel agencies to increase sales through personalized recommendations.</p>
             <div class="card-tags">
               <span class="tag">AI · LLM</span>
               <span class="tag">Fullstack</span>
@@ -186,14 +174,9 @@
           <div class="card-img" style="background-image: url('./assets/img/elderlink.png')"></div>
         </div>
         <div class="card-body">
-          <div class="card-play" aria-hidden="true">
-            <svg viewBox="0 0 40 40" width="40" height="40" fill="none">
-              <circle cx="20" cy="20" r="19" stroke="currentColor" stroke-width="1.5"/>
-              <polygon points="16,13 30,20 16,27" fill="currentColor"/>
-            </svg>
-          </div>
           <div class="card-meta">
             <h3 class="card-title">ElderLink</h3>
+            <p class="card-description">Voice assistant for seniors. Natural language to control apps, send messages, and place orders.</p>
             <div class="card-tags">
               <span class="tag">AI · LLM</span>
               <span class="tag">Voice</span>
@@ -211,14 +194,9 @@
           <div class="card-img" style="background-image: url('./assets/img/zenpomodoro.png'), linear-gradient(135deg, #2d1f3d 0%, #1a1a2e 100%);"></div>
         </div>
         <div class="card-body">
-          <div class="card-play" aria-hidden="true">
-            <svg viewBox="0 0 40 40" width="40" height="40" fill="none">
-              <circle cx="20" cy="20" r="19" stroke="currentColor" stroke-width="1.5"/>
-              <polygon points="16,13 30,20 16,27" fill="currentColor"/>
-            </svg>
-          </div>
           <div class="card-meta">
             <h3 class="card-title">Zen Pomodoro (In Progress)</h3>
+            <p class="card-description">Minimalist Pomodoro timer with task planner and focus tracking.</p>
             <div class="card-tags">
               <span class="tag">Productivity</span>
               <span class="tag">Web App</span>
@@ -236,14 +214,9 @@
           <div class="card-img" style="background-image: url('./assets/img/mediacollab.png'), linear-gradient(135deg, #0f3460 0%, #16213e 100%);"></div>
         </div>
         <div class="card-body">
-          <div class="card-play" aria-hidden="true">
-            <svg viewBox="0 0 40 40" width="40" height="40" fill="none">
-              <circle cx="20" cy="20" r="19" stroke="currentColor" stroke-width="1.5"/>
-              <polygon points="16,13 30,20 16,27" fill="currentColor"/>
-            </svg>
-          </div>
           <div class="card-meta">
             <h3 class="card-title">Media Collab</h3>
+            <p class="card-description">UAO student innovation group I founded. Hackathons, workshops, and product development.</p>
             <div class="card-tags">
               <span class="tag">Founder</span>
               <span class="tag">Student Group</span>
@@ -261,14 +234,9 @@
           <div class="card-img" style="background-image: url('./assets/img/CB_Proyect.jpg')"></div>
         </div>
         <div class="card-body">
-          <div class="card-play" aria-hidden="true">
-            <svg viewBox="0 0 40 40" width="40" height="40" fill="none">
-              <circle cx="20" cy="20" r="19" stroke="currentColor" stroke-width="1.5"/>
-              <polygon points="16,13 30,20 16,27" fill="currentColor"/>
-            </svg>
-          </div>
           <div class="card-meta">
             <h3 class="card-title">Crossing Biomes</h3>
+            <p class="card-description">3D exploration game built with Unity. Finalist at Huawei Developer Challenge, published on AppGallery.</p>
             <div class="card-tags">
               <span class="tag">Game Dev</span>
               <span class="tag">Unity 3D</span>
@@ -286,14 +254,9 @@
           <div class="card-img" style="background-image: url('./assets/img/la-aventura-de-la-creacion.jpg')"></div>
         </div>
         <div class="card-body">
-          <div class="card-play" aria-hidden="true">
-            <svg viewBox="0 0 40 40" width="40" height="40" fill="none">
-              <circle cx="20" cy="20" r="19" stroke="currentColor" stroke-width="1.5"/>
-              <polygon points="16,13 30,20 16,27" fill="currentColor"/>
-            </svg>
-          </div>
           <div class="card-meta">
             <h3 class="card-title">The Adventure of Creation</h3>
+            <p class="card-description">Educational game about creativity. Mention of Honor at Game Jam Lab 2020 — Best Educational Game.</p>
             <div class="card-tags">
               <span class="tag">Game Dev</span>
               <span class="tag">Educational</span>
@@ -363,12 +326,9 @@
       <h2 class="section-title">ACHIEVEMENTS</h2>
     </div>
     <div class="achievements-gallery" id="achievements-gallery">
-      <div class="achievements-pbar">
-        <div class="achievements-pbar-fill" id="ach-pbar-fill"></div>
-      </div>
       <div class="achievements-track" id="achievements-track">
 
-        <a class="achievement-panel" href="https://www.youtube.com/watch?v=3Z6SP9oEkMU&t=4335s" target="_blank" rel="noopener" style="--hue:160">
+        <a class="achievement-panel" href="https://www.youtube.com/watch?v=3Z6SP9oEkMU&t=4335s" target="_blank" rel="noopener" aria-label="View Pacific Datathon achievement" style="--hue:160">
           <div class="achievement-panel-inner achievement-panel-inner--3">
             <span class="achievement-panel-num">01</span>
             <span class="achievement-panel-year">2024</span>
@@ -378,7 +338,7 @@
           </div>
         </a>
 
-        <a class="achievement-panel" href="https://www.linkedin.com/posts/damddev_huaweicloud-hdc2023-entrepreneurship-activity-7140202292753903616-4AR2" target="_blank" rel="noopener" style="--hue:330">
+        <a class="achievement-panel" href="https://www.linkedin.com/posts/damddev_huaweicloud-hdc2023-entrepreneurship-activity-7140202292753903616-4AR2" target="_blank" rel="noopener" aria-label="View Huawei Cloud Grand Prize achievement" style="--hue:330">
           <div class="achievement-panel-inner achievement-panel-inner--1">
             <span class="achievement-panel-num">02</span>
             <span class="achievement-panel-year">2023</span>
@@ -388,7 +348,7 @@
           </div>
         </a>
 
-        <a class="achievement-panel" href="https://www.youtube.com/watch?v=tFQBTVOkrtk" target="_blank" rel="noopener" style="--hue:45">
+        <a class="achievement-panel" href="https://www.youtube.com/watch?v=tFQBTVOkrtk" target="_blank" rel="noopener" aria-label="View NTT Data Hackathon achievement" style="--hue:45">
           <div class="achievement-panel-inner achievement-panel-inner--2">
             <span class="achievement-panel-num">03</span>
             <span class="achievement-panel-year">2022</span>
@@ -398,7 +358,7 @@
           </div>
         </a>
 
-        <a class="achievement-panel" href="https://dev.to/devteam/refine-dev-hackathon-winners-announced-237g" target="_blank" rel="noopener" style="--hue:200">
+        <a class="achievement-panel" href="https://dev.to/devteam/refine-dev-hackathon-winners-announced-237g" target="_blank" rel="noopener" aria-label="View Refine Dev Hackathon achievement" style="--hue:200">
           <div class="achievement-panel-inner achievement-panel-inner--3">
             <span class="achievement-panel-num">04</span>
             <span class="achievement-panel-year">2023</span>
@@ -408,7 +368,7 @@
           </div>
         </a>
 
-        <a class="achievement-panel" href="https://github.com/alejo02336/TomaNota" target="_blank" rel="noopener" style="--hue:270">
+        <a class="achievement-panel" href="https://github.com/alejo02336/TomaNota" target="_blank" rel="noopener" aria-label="View MinTic Hackathon achievement" style="--hue:270">
           <div class="achievement-panel-inner achievement-panel-inner--4">
             <span class="achievement-panel-num">05</span>
             <span class="achievement-panel-year">2021</span>
@@ -418,7 +378,7 @@
           </div>
         </a>
 
-        <a class="achievement-panel" href="https://www.uao.edu.co/ingenieria/la-aventura-de-la-creacion-recibe-mencion-de-honor-en-el-game-jam-lab-2020/" target="_blank" rel="noopener" style="--hue:15">
+        <a class="achievement-panel" href="https://www.uao.edu.co/ingenieria/la-aventura-de-la-creacion-recibe-mencion-de-honor-en-el-game-jam-lab-2020/" target="_blank" rel="noopener" aria-label="View Game Jam Lab achievement" style="--hue:15">
           <div class="achievement-panel-inner achievement-panel-inner--1">
             <span class="achievement-panel-num">06</span>
             <span class="achievement-panel-year">2020</span>
@@ -428,7 +388,7 @@
           </div>
         </a>
 
-        <a class="achievement-panel" href="https://appgallery.huawei.com/#/app/C102501697" target="_blank" rel="noopener" style="--hue:330">
+        <a class="achievement-panel" href="https://appgallery.huawei.com/#/app/C102501697" target="_blank" rel="noopener" aria-label="View Huawei Developer Challenge achievement" style="--hue:330">
           <div class="achievement-panel-inner achievement-panel-inner--2">
             <span class="achievement-panel-num">07</span>
             <span class="achievement-panel-year">2020</span>
@@ -448,13 +408,13 @@
       <h2 class="contact-heading">COLLABORATE?</h2>
       <p class="contact-sub">Open to AI projects, hackathons, freelance &amp; full-time roles</p>
       <div class="contact-links">
-        <a class="contact-btn contact-btn--pink" href="mailto:gregson.murcia.c@gmail.com">
-          gregson.murcia.c@gmail.com
+        <a class="contact-btn contact-btn--pink" href="mailto:gregson.murcia.c@gmail.com" aria-label="Send email to gregson.murcia.c@gmail.com" title="gregson.murcia.c@gmail.com">
+          Email Me
         </a>
-        <a class="contact-btn contact-btn--cyan" href="https://www.linkedin.com/in/gregson-murcia-castro-b527a31a6/" target="_blank" rel="noopener">
+        <a class="contact-btn contact-btn--cyan" href="https://www.linkedin.com/in/gregson-murcia-castro-b527a31a6/" target="_blank" rel="noopener" aria-label="Contact via LinkedIn">
           LinkedIn
         </a>
-        <a class="contact-btn contact-btn--orange" href="https://github.com/GregoryInnovo" target="_blank" rel="noopener">
+        <a class="contact-btn contact-btn--orange" href="https://github.com/GregoryInnovo" target="_blank" rel="noopener" aria-label="View GitHub profile">
           GitHub
         </a>
       </div>
