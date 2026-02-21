@@ -857,7 +857,9 @@ img { display: block; }
 .work-detail-gallery-img {
   width: 100%;
   aspect-ratio: 1;
-  object-fit: cover;
+  object-fit: contain;
+  object-position: center;
+  background: var(--bg-subtle, rgba(255, 255, 255, 0.04));
   border-radius: 2px;
   border: 1px solid var(--border);
 }

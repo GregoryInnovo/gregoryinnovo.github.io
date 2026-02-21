@@ -1,0 +1,57 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">StealThis.dev social preview</title>
+  <desc id="desc">Open-source library of reusable web resources.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#020617" />
+      <stop offset="0.55" stop-color="#0B1333" />
+      <stop offset="1" stop-color="#111827" />
+    </linearGradient>
+    <radialGradient id="glowA" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(980 120) rotate(137.17) scale(410 300)">
+      <stop stop-color="#38BDF8" stop-opacity="0.42" />
+      <stop offset="1" stop-color="#38BDF8" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="glowB" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(600 620) rotate(-90) scale(280 980)">
+      <stop stop-color="#6366F1" stop-opacity="0.36" />
+      <stop offset="1" stop-color="#6366F1" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="bottomFill" x1="600" y1="340" x2="600" y2="630" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#4338CA" stop-opacity="0" />
+      <stop offset="0.55" stop-color="#4338CA" stop-opacity="0.16" />
+      <stop offset="1" stop-color="#4338CA" stop-opacity="0.28" />
+    </linearGradient>
+    <linearGradient id="frame" x1="94" y1="88" x2="1106" y2="542" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0EA5E9" stop-opacity="0.62" />
+      <stop offset="1" stop-color="#38BDF8" stop-opacity="0.22" />
+    </linearGradient>
+    <linearGradient id="word" x1="165" y1="304" x2="842" y2="304" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#A855F7" />
+      <stop offset="0.55" stop-color="#6366F1" />
+      <stop offset="1" stop-color="#22D3EE" />
+    </linearGradient>
+    <filter id="soft" x="0" y="0" width="1200" height="630" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="38" />
+    </filter>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)" />
+  <ellipse cx="980" cy="120" rx="320" ry="230" fill="url(#glowA)" />
+  <ellipse cx="600" cy="640" rx="860" ry="260" fill="url(#glowB)" />
+  <rect x="0" y="340" width="1200" height="290" fill="url(#bottomFill)" />
+
+  <g filter="url(#soft)" opacity="0.42">
+    <rect x="96" y="90" width="1008" height="452" rx="30" fill="#0F172A" />
+  </g>
+  <rect x="96" y="90" width="1008" height="452" rx="30" fill="#07122B" fill-opacity="0.78" stroke="url(#frame)" />
+
+  <circle cx="170" cy="155" r="10" fill="#38BDF8" />
+  <text x="200" y="166" fill="#CBD5E1" font-family="Inter, Arial, sans-serif" font-size="38" font-weight="700">StealThis.dev</text>
+
+  <text x="165" y="304" fill="#F8FAFC" font-family="Inter, Arial, sans-serif" font-size="86" font-weight="800">Reusable</text>
+  <text x="575" y="304" fill="url(#word)" font-family="Inter, Arial, sans-serif" font-size="86" font-weight="800">Elements</text>
+  <text x="165" y="370" fill="#94A3B8" font-family="Inter, Arial, sans-serif" font-size="40" font-weight="500">Animations, pages, components, prompts and more.</text>
+
+  <rect x="165" y="422" width="500" height="66" rx="33" fill="url(#word)" fill-opacity="0.15" stroke="#38BDF8" stroke-opacity="0.45" />
+  <text x="204" y="466" fill="#38BDF8" font-family="JetBrains Mono, monospace" font-size="32">stealthis.dev/library</text>
+
+</svg>

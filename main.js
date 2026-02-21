@@ -260,16 +260,17 @@ if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
    ══════════════════════════════════════════════════════════════════ */
 const PROJECTS = [
   {
-    title: 'Foodhy',
-    description: 'AI-powered food suggestions app. Won $10K Grand Prize at Huawei Cloud Developer Competition LATAM.',
-    tags: ['AI · LLM', 'Mobile', 'Startup'],
-    projectUrl: 'https://foodhy.com.co/',
-    cardImage: './assets/img/Foodhy.PNG',
-    summary: 'Foodhy is a platform that provides accessible nutritional information for everyone, fostering a culture of responsible and mindful consumption. Supported by artificial intelligence and professional guidance, it allows users to scan barcode products to get nutritional info and AI-powered suggestions. Built by MediaCollab, it won the Grand Prize ($10K USD) at the Huawei Cloud Developer Competition 2023 Latin America in Lima, Peru, competing against 7 teams from Colombia, Mexico, and Peru.',
-    images: ['./assets/img/foodhy_team.jpeg'],
+    title: 'StealThis',
+    description: 'Open-source library of design pages, components, animations, patterns, skills, templates & prompts — all free to copy. Ready-to-use snippets and demos, MCP server included. 102+ resources, 12 categories, MIT License.',
+    tags: ['Open Source', 'Design Library', 'MCP'],
+    projectUrl: 'https://stealthis.dev/',
+    cardImage: './assets/img/stealthis.webp',
+    summary: 'StealThis.dev is an open-source design library: pages, components, animations, patterns, skills, templates, and prompts — all free to copy. Browse 102+ resources across 12 categories (Web Animations, Web Pages, UI Components, Patterns, Remotion, Prompts, and more). Ready-to-use snippets and demos with an MCP server for integration. Featured items include CSS loaders, Claude Code skills, Astro + Tailwind starters, Remotion compositions, code review prompts, and glassmorphism UI. MIT License. Browse the library, copy the code, integrate into your projects.',
+    images: ['./assets/img/stealthis.svg'],
     links: [
-      { label: 'Watch pitch', url: 'https://www.youtube.com/watch?v=QsSwR6EaTkU' },
-      { label: 'LinkedIn post', url: 'https://www.linkedin.com/posts/damddev_huaweicloud-hdc2023-entrepreneurship-activity-7140202292753903616-4AR2?utm_source=share&utm_medium=member_desktop&rcm=ACoAADAruK4BlaZjQIm1f5Mtg79ZeaNr3GOdods' },
+      { label: 'Browse Library', url: 'https://stealthis.dev/library' },
+      { label: 'Docs', url: 'https://docs.stealthis.dev/' },
+      { label: 'GitHub', url: 'https://github.com/Foodhy/stealthis' },
     ],
   },
   {
@@ -281,6 +282,19 @@ const PROJECTS = [
     summary: 'Pocket is a personal finance and content tracker built around one idea: everything you consume, earn, and spend should be effortless to log. Using voice commands, you save articles, podcasts, videos, purchases, and income entries without breaking your flow — you hear something, you say it, Pocket captures it. It then organizes your content library and financial activity in one place, giving you clarity on where your time and money actually go. Currently in active development, exploring LLM integrations to auto-summarize saved content and generate spending insights.',
     images: [],
     links: [],
+  },
+  {
+    title: 'Foodhy',
+    description: 'AI-powered food suggestions app. Won $10K Grand Prize at Huawei Cloud Developer Competition LATAM.',
+    tags: ['AI · LLM', 'Mobile', 'Startup'],
+    projectUrl: 'https://foodhy.com.co/',
+    cardImage: './assets/img/Foodhy.PNG',
+    summary: 'Foodhy is a platform that provides accessible nutritional information for everyone, fostering a culture of responsible and mindful consumption. Supported by artificial intelligence and professional guidance, it allows users to scan barcode products to get nutritional info and AI-powered suggestions. Built by MediaCollab, it won the Grand Prize ($10K USD) at the Huawei Cloud Developer Competition 2023 Latin America in Lima, Peru, competing against 7 teams from Colombia, Mexico, and Peru.',
+    images: ['./assets/img/foodhy_team.jpeg'],
+    links: [
+      { label: 'Watch pitch', url: 'https://www.youtube.com/watch?v=QsSwR6EaTkU' },
+      { label: 'LinkedIn post', url: 'https://www.linkedin.com/posts/damddev_huaweicloud-hdc2023-entrepreneurship-activity-7140202292753903616-4AR2?utm_source=share&utm_medium=member_desktop&rcm=ACoAADAruK4BlaZjQIm1f5Mtg79ZeaNr3GOdods' },
+    ],
   },
   {
     title: 'SellMoreTrips',
