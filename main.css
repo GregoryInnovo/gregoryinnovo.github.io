@@ -542,7 +542,9 @@ img { display: block; }
 /* ── Card visual (image area with color bar) ─────────────────── */
 .card-visual {
   position: relative;
-  height: clamp(160px, 18vw, 240px);
+  aspect-ratio: 16 / 9;
+  height: auto;
+  min-height: clamp(200px, 22vw, 300px);
   overflow: hidden;
 }
 
@@ -565,13 +567,14 @@ img { display: block; }
   height: 100%;
   background-size: cover;
   background-position: center;
-  filter: brightness(0.65) grayscale(20%);
+  background-repeat: no-repeat;
+  filter: brightness(0.78) grayscale(10%);
   transition: transform 0.55s var(--ease-expo), filter 0.4s;
 }
 
 .media-card:hover .card-img {
   transform: scale(1.05);
-  filter: brightness(0.8) grayscale(0%);
+  filter: brightness(1) grayscale(0%);
 }
 
 /* ── Card body ──────────────────────────────────────────────── */
@@ -659,6 +662,8 @@ img { display: block; }
 }
 
 .media-gallery.list-view .card-visual {
+  aspect-ratio: auto;
+  min-height: 0;
   height: 6px;
 }
 
@@ -728,7 +733,7 @@ img { display: block; }
 
 .work-detail-layout {
   display: grid;
-  grid-template-columns: minmax(280px, 42%) 1fr;
+  grid-template-columns: minmax(320px, 48%) 1fr;
   gap: clamp(1.5rem, 4vw, 3rem);
   align-items: start;
   max-width: 1100px;
@@ -752,8 +757,8 @@ img { display: block; }
 }
 
 .work-detail-image {
-  aspect-ratio: 4 / 3;
-  max-height: min(42vh, 340px);
+  aspect-ratio: 16 / 9;
+  max-height: min(50vh, 420px);
   background-size: cover;
   background-position: center;
   border-radius: 2px;
